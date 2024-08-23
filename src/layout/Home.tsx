@@ -5,11 +5,13 @@ import { Outlet } from 'react-router-dom'
 
 const Home: React.FC = () => {
     return (
-        <>
+        <div className='flex justify-between'>
             <Aside />
-            <Outlet />
+            <main>
+                <Outlet />
+            </main>
             <RightBlock />
-        </>
+        </div>
     )
 }
 
