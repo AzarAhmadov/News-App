@@ -13,7 +13,7 @@ const Routers = createBrowserRouter([
                 element: <NewsBlock />,
             },
             {
-                path: "/detail",
+                path: "/detail/:slug",
                 element: <NewsDetail />,
             },
         ],
