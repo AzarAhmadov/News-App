@@ -17,10 +17,9 @@ const iconsMenu = [
     <GoCommentDiscussion className='text-[27px]' />,
 ]
 
-
 const Aside: React.FC = () => {
     return (
-        <aside className='flex flex-col justify-between pb-4 overflow-y-auto'>
+        <aside className='flex flex-col justify-between gap-3 pb-4 overflow-y-auto'>
             <div>
                 <Link className='flex items-center pt-8 mb-8 text-lg font-medium ps-8 gap-x-4 text-primaryDarker' to={'/'}> <Logo /> Aster News </Link>
                 <nav>
@@ -36,7 +35,6 @@ const Aside: React.FC = () => {
                                         {iconsMenu[index]}
                                         {item.name}
                                     </NavLink>
-
                                 </li>
                             ))
                         }
