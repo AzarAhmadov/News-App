@@ -1,8 +1,9 @@
 import React, { memo } from "react";
 import classNames from "classnames";
 import "./button.css";
+import { TypeButton } from "../../../types/types";
 
-const Button: React.FC<any> = ({ children, type, rounded, size }) => {
+const Button: React.FC<TypeButton> = ({ children, type, rounded, size }) => {
   return (
     <button
       className={classNames(
