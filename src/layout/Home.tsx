@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 
 const Home: React.FC = () => {
     return (
-        <div className="grid grid-cols-[300px_auto_300px]">
+        <div className="grid grid-cols-[260px_auto_285px] bg-bodyBack min-h-screen">
             <Aside />
             <main className='mx-auto'>
                 <Outlet />
