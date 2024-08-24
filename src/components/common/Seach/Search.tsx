@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Search: React.FC = () => {
   return (
     <div className="flex items-center gap-x-5">
-      <form className="flex items-center justify-between w-full px-3 py-3 rounded-md gap-x-3 bg-inputBg">
+      <form className="flex items-center justify-between w-full px-3 py-3 border border-gray-300 rounded-md gap-x-3 bg-inputBg">
         <input
           className="w-full bg-transparent outline-none"
           type="text"
