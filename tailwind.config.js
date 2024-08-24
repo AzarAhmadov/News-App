@@ -11,6 +11,9 @@ export default {
         primaryDark: '#0768B5',
         primary: '#2F9FF8',
         amberBlack: '#072D4B',
+        bodyBack:'#F4F9F8',
+        activeLink:'#E0F0F8',
+        textWhite:'#fff'
       },
     },
   },
