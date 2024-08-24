@@ -23,35 +23,37 @@ const iconsMenu = [
 
 const Aside: React.FC = () => {
   return (
-    <aside className="flex flex-col justify-between gap-3 overflow-y-auto pb-4">
-      <div>
-        <Link
-          className="mb-8 flex items-center gap-x-4 ps-8 pt-8 text-lg font-medium text-primaryDarker"
-          to={"/"}
-        >
-          {" "}
-          <Logo /> Aster News{" "}
-        </Link>
-        <nav>
-          <ul className="flex flex-col gap-y-4">
-            {Menu.map((item, index) => (
-              <li key={index}>
-                <NavLink
-                  className={({ isActive }) =>
-                    `flex items-center gap-x-4 py-3 ps-8 ${isActive ? "gap-x-4 rounded-r-full bg-activeLink font-medium text-primaryDarker" : ""}`
-                  }
-                  to={item.to}
-                >
-                  {iconsMenu[index]}
-                  {item.name}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+    <aside>
+      <div className="fixed flex flex-col justify-between h-screen gap-3 pb-4 overflow-y-auto">
+        <div>
+          <Link
+            className="flex items-center pt-8 mb-8 text-lg font-medium gap-x-4 ps-8 text-primaryDarker"
+            to={"/"}
+          >
+            {" "}
+            <Logo /> Aster News{" "}
+          </Link>
+          <nav>
+            <ul className="flex flex-col gap-y-4">
+              {Menu.map((item, index) => (
+                <li key={index}>
+                  <NavLink
+                    className={({ isActive }) =>
+                      `flex items-center gap-x-4 py-3 ps-8 ${isActive ? "gap-x-4 rounded-r-full bg-activeLink font-medium text-primaryDarker" : ""}`
+                    }
+                    to={item.to}
+                  >
+                    {iconsMenu[index]}
+                    {item.name}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
 
-      <Subscribe />
+        <Subscribe />
+      </div>
     </aside>
   );
 };
