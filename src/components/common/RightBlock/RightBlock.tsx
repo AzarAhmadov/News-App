@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const RightBlock: React.FC = () => {
-    return (
-        <div>
-            Right Block
-        </div>
-    )
-}
+  return <div>Right Block</div>;
+};
 
-export default RightBlock
+export default RightBlock;
