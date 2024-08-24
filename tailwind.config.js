@@ -13,7 +13,8 @@ export default {
         amberBlack: '#072D4B',
         bodyBack:'#F4F9F8',
         activeLink:'#E0F0F8',
-        textWhite:'#fff'
+        textWhite:'#fff',
+        inputBg:"#ECF5F8"
       },
     },
   },
