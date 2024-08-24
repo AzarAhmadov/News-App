@@ -6,7 +6,7 @@ import Search from "../components/common/Seach/Search";
 
 const Home: React.FC = () => {
   return (
-    <div className="grid min-h-screen grid-cols-[16.25rem_auto_17.813rem] gap-12 bg-bodyBack">
+    <div className="grid grid-cols-[16.25rem_auto_17.813rem] gap-12">
       <Aside />
       <main className="py-8">
         <Search />
