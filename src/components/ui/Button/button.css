@@ -1,0 +1,39 @@
+.btn {
+    @apply px-5 py-2 text-sm font-normal whitespace-nowrap
+}
+
+.btn-rounded {
+    @apply rounded-md
+}
+
+.btn-sm {
+    @apply text-base
+}
+
+.btn-lg {
+    @apply text-lg
+}
+
+.btn-block {
+    @apply flex w-full
+}
+
+.btn-primary {
+    @apply bg-primary text-white
+}
+
+.btn-primaryDark {
+    @apply bg-primaryDark text-white
+}
+
+.btn-primaryDarker {
+    @apply bg-primaryDarker text-white
+}
+
+.btn-outline-transparent {
+    @apply border border-gray-300 text-amberBlack
+}
+
+.btn-primary-outline {
+    @apply border border-primary text-primary
+}
