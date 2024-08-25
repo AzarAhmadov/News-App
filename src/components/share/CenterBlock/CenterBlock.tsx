@@ -6,11 +6,16 @@ import NewsBlock from "../NewsBlock/NewsBlock";
 import { SliderItems } from "../../../constants/constants";
 import Button from "../../ui/Button";
 import { MdArrowForwardIos } from "react-icons/md";
+import { BiWorld } from "react-icons/bi";
+import { FaRegNewspaper } from "react-icons/fa6";
 
 const CenterBlock: React.FC = () => {
   return (
     <>
-      <NewsBlock />
+      <NewsBlock
+        title="Around the World"
+        icon={<BiWorld className="text-xl" />}
+      />
       <Slide title="Creators you should follow" icon={<LuPencilLine />}>
         {SliderItems.map((item, index) => (
           <SwiperSlide key={index}>
@@ -44,7 +49,10 @@ const CenterBlock: React.FC = () => {
           </SwiperSlide>
         ))}
       </Slide>
-      <NewsBlock />
+      <NewsBlock
+        title="Popular news"
+        icon={<FaRegNewspaper className="text-xl" />}
+      />
     </>
   );
 };

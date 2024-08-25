@@ -14,3 +14,8 @@ export type typeSlider = {
   title: string;
   icon: ReactElement;
 };
+
+export type typeNewsBlock = {
+  title: string;
+  icon: ReactElement;
+};

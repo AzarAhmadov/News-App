@@ -5,9 +5,9 @@ import Search from "../components/common/Seach/Search";
 
 const Home: React.FC = () => {
   return (
-    <div className="grid h-full grid-cols-[260px_calc(100%_-_369px)] gap-[20px] pt-3">
+    <div className="grid h-full grid-cols-[260px_calc(100%_-_300px)] gap-[20px] pt-3">
       <Aside />
-      <main>
+      <main className="container mx-auto">
         <Search />
         <Outlet />
       </main>
