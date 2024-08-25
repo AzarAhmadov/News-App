@@ -11,9 +11,9 @@ const Subscribe: React.FC = () => {
           Subscribe to Premium
         </h3>
       </div>
-      <div className="mt-3 flex items-center justify-between">
-        <div className="flex items-end text-xl font-bold text-textWhite">
-          $8<small className="text-sm">/m</small>
+      <div className="flex items-center justify-between mt-3">
+        <div className="font-bold text-white text-[1.7rem]">
+          $8<small className="text-[1rem] font-normal">/m</small>
         </div>
         <Button type="primaryDarker" size="sm" rounded={true}>
           {" "}
