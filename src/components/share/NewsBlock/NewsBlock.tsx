@@ -3,7 +3,7 @@ import NewsBlockItem from "./NewsBlockItem/NewsBlockItem";
 
 const NewsBlock: React.FC = () => {
   return (
-    <div className="grid grid-cols-2 gap-4 py-5">
+    <div className="grid grid-cols-3 gap-3 py-5">
       <NewsBlockItem />
       <NewsBlockItem />
       <NewsBlockItem />
