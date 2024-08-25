@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../layout/Home";
-import NewsBlock from "../components/share/NewsBlock/NewsBlock";
 import NewsDetail from "../components/share/NewsDetail/NewsDetail";
+import CenterBlock from "../components/share/CenterBlock/CenterBlock";
 
 const Routers = createBrowserRouter([
   {
@@ -10,7 +10,7 @@ const Routers = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <NewsBlock />,
+        element: <CenterBlock />,
       },
       {
         path: "/detail/:slug",
