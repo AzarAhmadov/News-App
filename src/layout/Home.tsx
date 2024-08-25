@@ -1,18 +1,16 @@
 import React from "react";
 import Aside from "../components/common/Aside/Aside";
-import RightBlock from "../components/common/RightBlock/RightBlock";
 import { Outlet } from "react-router-dom";
 import Search from "../components/common/Seach/Search";
 
 const Home: React.FC = () => {
   return (
-    <div className="grid grid-cols-[16.25rem_auto_17.813rem] gap-12">
+    <div className="grid h-full grid-cols-[260px_calc(100%_-_369px)] gap-[20px] pt-3">
       <Aside />
-      <main className="py-8">
+      <main>
         <Search />
         <Outlet />
       </main>
-      <RightBlock />
     </div>
   );
 };
