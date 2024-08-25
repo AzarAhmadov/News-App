@@ -1,6 +1,5 @@
 import React from "react";
 import { AiOutlineShareAlt } from "react-icons/ai";
-import { MdOutlineWatchLater } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const NewsBlockItem: React.FC = () => {
@@ -28,20 +27,15 @@ const NewsBlockItem: React.FC = () => {
         <Link to={""}  className="absolute inset-0"/>
       </div>
       <ul className="flex justify-between mt-5">
-        <li className="flex items-center text-sm text-infoText gap-x-2">
+        <li className="flex items-center text-[0.813rem] text-infoText gap-x-2">
           <span>Sport Biz</span>
           <span>●</span>
           <span>15 mins ago</span>
         </li>
-        <li className="flex text-sm gap-x-4">
+        <li className="flex text-[0.813rem] gap-x-3">
           <button className="flex items-center gap-x-2">
             <AiOutlineShareAlt />
             Share
-          </button>
-
-          <button className="flex items-center gap-x-2">
-            <MdOutlineWatchLater />
-            Read Later
           </button>
         </li>
       </ul>
