@@ -27,7 +27,7 @@ const Header: React.FC = () => {
       </Link>
 
       <Link
-        className="flex items-center px-10 py-3 text-white rounded-md bg-primaryDarker gap-x-2"
+        className="flex items-center px-10 py-3 text-white rounded-md gap-x-2 bg-primaryDarker"
         to={""}
       >
         Login
