@@ -1,42 +1,52 @@
 import { useEffect, useState } from "react";
 import { API } from "../utils/api";
 import NewsApi from "../api/news.api";
+import AuthorApi from "../api/author.api";
 
-const useFetch = <T,>(initialState: T) => {
-  const [data, setData] = useState<T>(initialState);
-  const [loading, setLoading] = useState<boolean>(false);
+const useFetch = (initialState = false) => {
+  const [data, setData] = useState(initialState);
+  const [loading, setLoading] = useState(false);
 
-  const fetchData = async (url: string, params: object = {}): Promise<void> => {
+  const fetchData = async (url: string, params = {}) => {
     try {
       setLoading(true);
-      const res = await API.get<T>(url, { params });
-      setData(res.data);
+      const res: any = await API.get(url, { params });
+      setData(res);
       setLoading(false);
-    } catch (error) {
-      console.error(error);
+    } catch (e) {
       setLoading(false);
     }
   };
 
-  return [data, fetchData, loading] as const;
+  return [data, fetchData, loading];
 };
 
 export const useFetchCategories = () => {
-  const [data, fetchData, loading] = useFetch<any[]>([]);
+  const [data, fetchData, loading] = useFetch([]);
 
   useEffect(() => {
     fetchData(NewsApi.categories);
-  }, [fetchData]);
+  }, []);
 
-  return [data, loading] as const;
+  return [data, loading];
 };
 
 export const useFetchAllNews = () => {
-  const [data, fetchData, loading] = useFetch<any[]>([]);
+  const [data, fetchData, loading] = useFetch([]);
 
   useEffect(() => {
     fetchData(NewsApi.all, { limit: 5 });
-  }, [fetchData]);
+  }, []);
+
+  return [data, loading];
+};
+
+export const useFetchAutors = () => {
+  const [data, fetchData, loading] = useFetch<any[]>([]);
+
+  useEffect(() => {
+    fetchData(AuthorApi.all);
+  }, []);
 
   return [data, loading] as const;
 };
