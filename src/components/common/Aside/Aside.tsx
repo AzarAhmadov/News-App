@@ -11,7 +11,7 @@ import { IoBarChartOutline, IoGameControllerOutline } from "react-icons/io5";
 import { GiMaterialsScience } from "react-icons/gi";
 import { AiOutlineEnvironment } from "react-icons/ai";
 import { Logo } from "../../../assets/svgs";
-import { Link, NavLink } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Subscribe from "../../ui/Subscribe";
 import { useFetchCategories } from "../../../hooks/useFetch";
 
@@ -51,6 +51,8 @@ const IconTemplate: React.FC<IconTemplateProps> = ({ slug }) => {
 
 const Aside: React.FC = () => {
   const [categories] = useFetchCategories();
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category");
 
   return (
     <aside>
@@ -66,15 +68,13 @@ const Aside: React.FC = () => {
             <ul className="flex flex-col gap-y-4">
               {categories?.map((item: any, index: number) => (
                 <li key={index}>
-                  <NavLink
-                    className={({ isActive }) =>
-                      `flex items-center gap-x-4 py-3 ps-8 ${item.slug === 'world' ? "gap-x-4 rounded-r-full bg-activeLink font-medium text-primaryDarker" : ""}`
-                    }
-                    to={item.slug}
+                  <Link
+                    className={`flex items-center gap-x-4 py-3 ps-8 transition-all ${item.slug === category ? "rounded-r-full bg-activeLink font-medium text-primaryDarker" : ""}`}
+                    to={`search?category=${item.slug}`}
                   >
                     <IconTemplate slug={item.slug} />
                     {item.name}
-                  </NavLink>
+                  </Link>
                 </li>
               ))}
             </ul>
