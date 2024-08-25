@@ -24,13 +24,12 @@ const iconsMenu = [
 const Aside: React.FC = () => {
   return (
     <aside>
-      <div className="fixed flex flex-col justify-between h-screen gap-3 pb-4 overflow-y-auto">
+      <div className="fixed z-10 flex flex-col justify-between h-screen gap-3 pb-4 overflow-y-auto">
         <div>
           <Link
-            className="flex items-center pt-8 mb-8 text-lg font-medium gap-x-4 ps-8 text-primaryDarker"
+            className="flex items-center pt-3 mb-8 text-lg font-medium gap-x-4 ps-8 text-primaryDarker"
             to={"/"}
           >
-            {" "}
             <Logo /> Aster News{" "}
           </Link>
           <nav>
