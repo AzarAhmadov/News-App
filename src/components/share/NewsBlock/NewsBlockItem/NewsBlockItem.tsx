@@ -24,7 +24,7 @@ const NewsBlockItem: React.FC = () => {
             />
           </figure>
         </div>
-        <Link to={""}  className="absolute inset-0"/>
+        <Link to={"/detail/name"}  className="absolute inset-0"/>
       </div>
       <ul className="flex justify-between mt-5">
         <li className="flex items-center text-[0.813rem] text-infoText gap-x-2">
