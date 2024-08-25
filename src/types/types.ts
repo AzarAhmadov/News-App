@@ -5,8 +5,8 @@ export type TypeButton = {
   type: string;
   rounded: boolean;
   size: string;
-  width: string;
-  outline: boolean;
+  width?: string;
+  outline?: boolean;
 };
 
 export type typeSlider = {
