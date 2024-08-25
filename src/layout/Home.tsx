@@ -1,14 +1,14 @@
 import React from "react";
 import Aside from "../components/common/Aside/Aside";
 import { Outlet } from "react-router-dom";
-import Search from "../components/common/Seach/Search";
+import Header from "../components/common/Header/Header";
 
 const Home: React.FC = () => {
   return (
-    <div className="grid h-full grid-cols-[260px_calc(100%_-_300px)] gap-[20px] pt-3">
+    <div className="grid h-full grid-cols-[260px_calc(100%_-_325px)] gap-[35px] pt-3">
       <Aside />
       <main className="container mx-auto">
-        <Search />
+        <Header />
         <Outlet />
       </main>
     </div>
