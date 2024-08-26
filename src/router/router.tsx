@@ -3,6 +3,7 @@ import Home from "../layout/Home";
 import NewsDetail from "../components/share/NewsDetail/NewsDetail";
 import CenterBlock from "../components/share/CenterBlock/CenterBlock";
 import Search from "../components/share/Search/Search";
+import AuthorDetail from "../components/share/AuthorDetail/AuthorDetail";
 
 const Routers = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const Routers = createBrowserRouter([
       {
         path: "/detail/:slug",
         element: <NewsDetail />,
+      },
+      {
+        path: "/author/:slug",
+        element: <AuthorDetail />,
       },
     ],
   },
