@@ -13,7 +13,7 @@ const NewsBlock: React.FC<typeNewsBlock> = ({ title, icon }) => {
         <h2 className="text-lg font-medium"> {title} </h2>
       </div>
       <div className="grid grid-cols-3 gap-3 py-5">
-        {data?.data?.map((item: any, index: number) => (
+        {data?.map((item: any, index: number) => (
           <NewsBlockItem item={item} key={index} />
         ))}
       </div>
