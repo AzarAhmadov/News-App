@@ -51,6 +51,16 @@ export const useFetchNewsBySlug = (slug: string) => {
   return [data, loading];
 };
 
+export const useFetchNewsByCategory = (category: string) => {
+  const [data, fetchData, loading] = useFetch([]);
+
+  useEffect(() => {
+    fetchData(NewsApi.all, { category }, true);
+  }, [category]);
+
+  return [data, loading];
+};
+
 export const useFetchAutors = () => {
   const [data, fetchData, loading] = useFetch([]);
 
@@ -68,5 +78,15 @@ export const useFetchAuthorBySlug = (slug: string) => {
     fetchData(AuthorApi.bySlug.replace(":slug", slug), {}, false);
   }, []);
 
-  return [data, fetch, loading];
+  return [data, loading];
+};
+
+export const useFetchNewsAuthorBySlug = (slug: string, limit: number) => {
+  const [data, fetchData, loading] = useFetch();
+
+  useEffect(() => {
+    fetchData(NewsApi.all, { authorSlug: slug, limit }, false);
+  }, []);
+
+  return [data, loading];
 };
