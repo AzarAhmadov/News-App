@@ -1,28 +1,33 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import Comment from "../../ui/Comment";
-import { FaArrowLeft } from "react-icons/fa";
 import { useFetchNewsBySlug } from "../../../hooks/useFetch";
 import moment from "moment";
+import GoBack from "../../ui/GoBack";
+import ErrorMsg from "../../ui/ErrorMsg";
+import Spinner from "../../ui/Spinner";
 
 const NewsDetail: React.FC = () => {
   const { slug } = useParams();
 
-  const [data] = useFetchNewsBySlug(slug);
+  const [data, loading] = useFetchNewsBySlug(slug);
+
+  if (loading) {
+    return <Spinner/>
+  }
+
+  if (data.length === 0) {
+    return <ErrorMsg text="Xəbər tapılmadı..." />;
+  }
 
   return (
     <>
       <div className="py-7">
-        <Link
-          className="mb-5 flex w-max rounded-md bg-black p-2 px-4 text-white"
-          to={"/"}
-        >
-          <FaArrowLeft />
-        </Link>
+        <GoBack />
 
         <h3 className="text-2xl text-black">{data?.title}</h3>
         <Link
-          className="mt-3 inline-flex rounded-md bg-activeLink px-4 py-1 text-primaryDark"
+          className="inline-flex px-4 py-1 mt-3 rounded-md bg-activeLink text-primaryDark"
           to={`/search?category=${data?.category?.slug}`}
         >
           {data?.category?.name}
@@ -31,7 +36,7 @@ const NewsDetail: React.FC = () => {
 
       <figure className="aspect-[16/8] overflow-hidden rounded-md">
         <img
-          className="size-full object-cover object-center"
+          className="object-cover object-center size-full"
           src={data?.photo}
           alt=""
         />
@@ -42,7 +47,7 @@ const NewsDetail: React.FC = () => {
         dangerouslySetInnerHTML={{ __html: data?.content }}
       ></div>
 
-      <div className="mb-5 mt-7 border-b border-gray-200 pb-5 text-center">
+      <div className="pb-5 mb-5 text-center border-b border-gray-200 mt-7">
         <h3 className="mb-2 text-paragraphColor">
           {moment(data?.published_date, "YYYYMMDD").fromNow()}
         </h3>
