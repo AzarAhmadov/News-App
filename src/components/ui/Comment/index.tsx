@@ -6,14 +6,8 @@ import { AiOutlineDelete } from "react-icons/ai";
 
 const Comment: React.FC = () => {
   return (
-    <div className="py-7">
-      <div className="pb-5 mb-5 text-center border-b border-gray-200">
-        <h3 className="mb-2 text-paragraphColor">
-          Published July 5, 2021 - 8:16 pm IST
-        </h3>
-        <Link to={""}>by John Abraham</Link>
-      </div>
-      <div className="mx-auto w-full max-w-[55rem]">
+    <>
+      <div className="mx-auto pb-7 w-full max-w-[55rem]">
         <div className="text-center ">
           <h3 className="mb-3 text-lg font-medium">Add your comment</h3>
           <div className="flex flex-col items-center gap-y-3">
@@ -53,7 +47,7 @@ const Comment: React.FC = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
