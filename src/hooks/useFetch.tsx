@@ -7,11 +7,11 @@ const useFetch = (initialState = false) => {
   const [data, setData] = useState(initialState);
   const [loading, setLoading] = useState(false);
 
-  const fetchData = async (url: string, params = {}) => {
+  const fetchData = async (url: string, params = {}, list = true) => {
     try {
       setLoading(true);
       const res: any = await API.get(url, { params });
-      setData(res);
+      setData(list ? res.data : res);
       setLoading(false);
     } catch (e) {
       setLoading(false);
@@ -25,7 +25,7 @@ export const useFetchCategories = () => {
   const [data, fetchData, loading] = useFetch([]);
 
   useEffect(() => {
-    fetchData(NewsApi.categories);
+    fetchData(NewsApi.categories, {}, false);
   }, []);
 
   return [data, loading];
@@ -35,18 +35,38 @@ export const useFetchAllNews = () => {
   const [data, fetchData, loading] = useFetch([]);
 
   useEffect(() => {
-    fetchData(NewsApi.all, { limit: 5 });
+    fetchData(NewsApi.all, { limit: 5 }, true);
+  }, []);
+
+  return [data, loading];
+};
+
+export const useFetchNewsBySlug = (slug: string) => {
+  const [data, fetchData, loading] = useFetch([]);
+
+  useEffect(() => {
+    fetchData(NewsApi.bySlug.replace(":slug", slug), {}, false);
   }, []);
 
   return [data, loading];
 };
 
 export const useFetchAutors = () => {
-  const [data, fetchData, loading] = useFetch<any[]>([]);
+  const [data, fetchData, loading] = useFetch([]);
 
   useEffect(() => {
-    fetchData(AuthorApi.all);
+    fetchData(AuthorApi.all, {}, false);
   }, []);
 
-  return [data, loading] as const;
+  return [data, loading];
+};
+
+export const useFetchAuthorBySlug = (slug: string) => {
+  const [data, fetchData, loading] = useFetch();
+
+  useEffect(() => {
+    fetchData(AuthorApi.bySlug.replace(":slug", slug), {}, false);
+  }, []);
+
+  return [data, fetch, loading];
 };
