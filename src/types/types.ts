@@ -7,6 +7,7 @@ export type TypeButton = {
   size: string;
   width?: string;
   outline?: boolean;
+  to?: string;
 };
 
 export type typeSlider = {
