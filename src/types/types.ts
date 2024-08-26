@@ -20,3 +20,7 @@ export type typeNewsBlock = {
   title: string;
   icon: ReactElement;
 };
+
+export type TypeErrorMsg = {
+  text: string;
+};
