@@ -3,7 +3,7 @@ import axios from "axios";
 const service = () => {
   const headers = {
     "Content-Type": "application/json",
-    Accept: "application/json",
+    "Accept": "application/json",
     "Access-Control-Max-Age": 86400,
     "Access-Control-Allow-Origin": "*",
   };
