@@ -31,12 +31,12 @@ export const useFetchCategories = () => {
   return [data, loading];
 };
 
-export const useFetchAllNews = () => {
+export const useFetchAllNews = (page: number, limit: number) => {
   const [data, fetchData, loading] = useFetch([]);
 
   useEffect(() => {
-    fetchData(NewsApi.all, { limit: 5 }, true);
-  }, []);
+    fetchData(NewsApi.all, { page, limit }, true);
+  }, [page, limit]);
 
   return [data, loading];
 };
