@@ -14,7 +14,7 @@ import { Logo } from "../../../assets/svgs";
 import { Link, useSearchParams } from "react-router-dom";
 import Subscribe from "../../ui/Subscribe";
 import { useFetchCategories } from "../../../hooks/useFetch";
-import SkeletonLoading from "../../ui/Skeleton";
+import SkeletonLoading from "../../ui/SkeletonLoading";
 
 type IconTemplateProps = {
   slug: keyof IconTemplate;
@@ -55,6 +55,40 @@ const Aside: React.FC = () => {
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
 
+  const RenderNavbar = () => {
+    if (loading) {
+      return (
+        <SkeletonLoading
+          width="full"
+          height="navbar"
+          rounded={true}
+          type="navbar"
+          count={10}
+        />
+      );
+    } else {
+      return (
+        <ul className="flex flex-col gap-y-4">
+          {categories?.map((item: any, index: number) => (
+            <li key={index}>
+              <Link
+                className={`flex items-center gap-x-4 py-3 ps-8 transition-all ${
+                  item.slug === category
+                    ? "rounded-r-full bg-activeLink font-medium text-primaryDarker"
+                    : ""
+                }`}
+                to={`search?category=${item.slug}`}
+              >
+                <IconTemplate slug={item.slug} />
+                {item.slug.charAt(0).toUpperCase() + item.slug.slice(1)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  };
+
   return (
     <aside>
       <div className="fixed z-10 flex flex-col justify-between h-screen gap-3 pb-6 overflow-y-auto pe-2">
@@ -65,33 +99,8 @@ const Aside: React.FC = () => {
           >
             <Logo /> Aster News
           </Link>
-          <nav>
-            <ul className="flex flex-col gap-y-4">
-              {categories?.map((item: any, index: number) =>
-                loading ? (
-                  <li key={index}>
-                    <SkeletonLoading />
-                  </li>
-                ) : (
-                  <li key={index}>
-                    <Link
-                      className={`flex items-center gap-x-4 py-3 ps-8 transition-all ${
-                        item.slug === category
-                          ? "rounded-r-full bg-activeLink font-medium text-primaryDarker"
-                          : ""
-                      }`}
-                      to={`search?category=${item.slug}`}
-                    >
-                      <IconTemplate slug={item.slug} />
-                      {item.slug.charAt(0).toUpperCase() + item.slug.slice(1)}
-                    </Link>
-                  </li>
-                ),
-              )}
-            </ul>
-          </nav>
+          <nav>{RenderNavbar()}</nav>
         </div>
-
         <Subscribe />
       </div>
     </aside>
