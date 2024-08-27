@@ -41,7 +41,7 @@ const CenterBlock: React.FC = () => {
                 size="md"
                 type="black"
                 rounded={true}
-                to  ={`author/${item.slug}`}
+                to={`author/${item.slug}`}
               >
                 <span className="flex items-center justify-center gap-x-2">
                   Detail
