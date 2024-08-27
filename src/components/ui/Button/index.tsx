@@ -12,16 +12,21 @@ const Button: React.FC<TypeButton> = ({
   width,
   outline,
   to,
+  onClick = () => {},
 }) => {
   const navigate = useNavigate();
-  
-  const GetAuthorsDetail = () => {
-    navigate(to);
+
+  const handleClick = () => {
+    if (to) {
+      navigate(to);
+    } else {
+      onClick();
+    }
   };
 
   return (
     <button
-      onClick={() => (to ? GetAuthorsDetail() : null)}
+      onClick={() => handleClick()}
       className={classNames(
         {
           btn: true,
