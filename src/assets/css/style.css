@@ -1,3 +1,15 @@
-body {
-  @apply bg-bodyBack;
+@layer base {
+  body {
+    @apply bg-bodyBack;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    border: 1px solid rgba(100, 125, 238, 0.096);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #00000045;
+    border-radius: 10px;
+  }
 }

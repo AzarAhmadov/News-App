@@ -16,15 +16,19 @@ const Search: React.FC = () => {
   }
 
   if (data.length === 0) {
-    return <ErrorMsg text="Axtarığınız kateqoriya mövcud deyil..." />;
+    return (
+      <ErrorMsg text="The category you are looking for is not available..." />
+    );
   }
 
   return (
-    <div className="grid grid-cols-3 gap-3 py-5">
-      {data?.map((item: any, index: number) => (
-        <NewsBlockItem item={item} key={index} />
-      ))}
-    </div>
+    <>
+      <div className="grid grid-cols-3 gap-3 py-5">
+        {data?.map((item: any, index: number) => (
+          <NewsBlockItem item={item} key={index} />
+        ))}
+      </div>
+    </>
   );
 };
 

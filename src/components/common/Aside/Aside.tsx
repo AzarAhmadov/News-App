@@ -14,6 +14,7 @@ import { Logo } from "../../../assets/svgs";
 import { Link, useSearchParams } from "react-router-dom";
 import Subscribe from "../../ui/Subscribe";
 import { useFetchCategories } from "../../../hooks/useFetch";
+import SkeletonLoading from "../../ui/Skeleton";
 
 type IconTemplateProps = {
   slug: keyof IconTemplate;
@@ -50,13 +51,13 @@ const IconTemplate: React.FC<IconTemplateProps> = ({ slug }) => {
 };
 
 const Aside: React.FC = () => {
-  const [categories] = useFetchCategories();
+  const [categories, loading] = useFetchCategories();
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
 
   return (
     <aside>
-      <div className="fixed z-10 flex flex-col justify-between h-screen gap-3 pb-6 overflow-y-auto">
+      <div className="fixed z-10 flex flex-col justify-between h-screen gap-3 pb-6 overflow-y-auto pe-2">
         <div>
           <Link
             className="flex items-center pt-3 mb-8 text-lg font-medium gap-x-4 ps-8 text-primaryDarker"
@@ -66,17 +67,27 @@ const Aside: React.FC = () => {
           </Link>
           <nav>
             <ul className="flex flex-col gap-y-4">
-              {categories?.map((item: any, index: number) => (
-                <li key={index}>
-                  <Link
-                    className={`flex items-center gap-x-4 py-3 ps-8 transition-all ${item.slug === category ? "rounded-r-full bg-activeLink font-medium text-primaryDarker" : ""}`}
-                    to={`search?category=${item.slug}`}
-                  >
-                    <IconTemplate slug={item.slug} />
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
+              {categories?.map((item: any, index: number) =>
+                loading ? (
+                  <li key={index}>
+                    <SkeletonLoading />
+                  </li>
+                ) : (
+                  <li key={index}>
+                    <Link
+                      className={`flex items-center gap-x-4 py-3 ps-8 transition-all ${
+                        item.slug === category
+                          ? "rounded-r-full bg-activeLink font-medium text-primaryDarker"
+                          : ""
+                      }`}
+                      to={`search?category=${item.slug}`}
+                    >
+                      <IconTemplate slug={item.slug} />
+                      {item.slug.charAt(0).toUpperCase() + item.slug.slice(1)}
+                    </Link>
+                  </li>
+                ),
+              )}
             </ul>
           </nav>
         </div>

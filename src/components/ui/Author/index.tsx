@@ -1,9 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { IoNewspaperOutline } from "react-icons/io5";
-import {
-  useFetchAuthorBySlug,
-  useFetchNewsAuthorBySlug,
-} from "../../../hooks/useFetch";
+import { useFetchAuthorBySlug, useFetchNewsAuthorBySlug} from "../../../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import AuthorNews from "../AuthorNews";
 import GoBack from "../GoBack";
@@ -20,7 +17,7 @@ const Author: React.FC = () => {
   }
 
   if (!autorSlugData) {
-    return <ErrorMsg text="Axtardığınız müəllif mövcud deyil..." />;
+    return <ErrorMsg text="The author you are looking for is not available..." />;
   }
 
   return (
@@ -46,7 +43,7 @@ const Author: React.FC = () => {
         </div>
         <span className="flex items-center px-4 py-3 text-sm text-white bg-black rounded-md gap-x-2">
           <IoNewspaperOutline className="text-md" />
-          Xəbər sayı: {authorAllNewsData?.total}
+          Number of news: {authorAllNewsData?.total}
         </span>
       </div>
 

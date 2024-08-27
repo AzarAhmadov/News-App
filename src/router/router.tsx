@@ -4,6 +4,7 @@ import NewsDetail from "../components/share/NewsDetail/NewsDetail";
 import CenterBlock from "../components/share/CenterBlock/CenterBlock";
 import Search from "../components/share/Search/Search";
 import AuthorDetail from "../components/share/AuthorDetail/AuthorDetail";
+import SearchArea from "../components/ui/SearchArea";
 
 const Routers = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const Routers = createBrowserRouter([
       },
       {
         path: "/search",
-        element: <Search />,
+        element: <SearchArea />,
       },
       {
         path: "/detail/:slug",

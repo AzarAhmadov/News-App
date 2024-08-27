@@ -17,7 +17,7 @@ const NewsDetail: React.FC = () => {
   }
 
   if (data.length === 0) {
-    return <ErrorMsg text="Xəbər tapılmadı..." />;
+    return <ErrorMsg text="This news page is not available" />;
   }
 
   return (
@@ -30,7 +30,7 @@ const NewsDetail: React.FC = () => {
           className="inline-flex px-4 py-1 mt-3 rounded-md bg-activeLink text-primaryDark"
           to={`/search?category=${data?.category?.slug}`}
         >
-          {data?.category?.name}
+          {data?.category?.slug.charAt(0).toUpperCase() + data?.category?.slug.slice(1)}
         </Link>
       </div>
 

@@ -14,10 +14,10 @@ const ErrorMsg: React.FC<TypeErrorMsg> = ({ text }) => {
       <p className="mt-5 text-xl">{text}</p>
       <Link
         to={"/"}
-        className="mt-5 flex items-center gap-x-3 rounded-md bg-black px-4 py-2 text-white"
+        className="flex items-center px-4 py-2 mt-5 text-white bg-black rounded-md gap-x-3"
       >
         <FaArrowLeft />
-        Geri dön
+        Go back
       </Link>
     </div>
   );
