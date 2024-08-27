@@ -8,6 +8,7 @@ export type TypeButton = {
   width?: string;
   outline?: boolean;
   to?: string;
+  onClick?: () => void;
 };
 
 export type typeSlider = {
@@ -23,4 +24,8 @@ export type typeNewsBlock = {
 
 export type TypeErrorMsg = {
   text: string;
+};
+
+export type TypeLoadMore = {
+  handlePage: () => void;
 };
