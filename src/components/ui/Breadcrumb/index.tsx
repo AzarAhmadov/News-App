@@ -9,6 +9,11 @@ const Breadcrumb: React.FC = () => {
   const segments = pathname.split("/");
   let url = "";
 
+  const NewFormat = {
+    home: "Ana Sehife",
+    search: "Axtaris",
+  };
+
   return (
     <div className="mt-6 mb-2">
       <nav className="flex" aria-label="Breadcrumb">
@@ -37,7 +42,7 @@ const Breadcrumb: React.FC = () => {
                   )}
                   <Link
                     to={`/${url}`}
-                    className="text-sm font-medium text-gray-500 transition-all hover:text-black ms-1 md:ms-2"
+                    className="text-sm font-medium text-gray-500 transition-all ms-1 hover:text-black md:ms-2"
                   >
                     {segment === "" ? "Home" : TextFirstLineUpperCase(segment)}
                   </Link>
