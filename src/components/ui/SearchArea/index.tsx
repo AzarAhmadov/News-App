@@ -3,9 +3,10 @@ import Breadcrumb from "../Breadcrumb";
 import Search from "../../share/Search/Search";
 
 const SearchArea: React.FC = () => {
+
   return (
     <>
-      <Breadcrumb />
+      <Breadcrumb  />
       <Search />
     </>
   );
