@@ -6,6 +6,7 @@ import moment from "moment";
 import GoBack from "../../ui/GoBack";
 import ErrorMsg from "../../ui/ErrorMsg";
 import Spinner from "../../ui/Spinner";
+import { TextFirstLineUpperCase } from "../../../helper/helper";
 
 const NewsDetail: React.FC = () => {
   const { slug } = useParams();
@@ -30,7 +31,7 @@ const NewsDetail: React.FC = () => {
           className="inline-flex px-4 py-1 mt-3 rounded-md bg-activeLink text-primaryDark"
           to={`/search?category=${data?.category?.slug}`}
         >
-          {data?.category?.slug.charAt(0).toUpperCase() + data?.category?.slug.slice(1)}
+          {TextFirstLineUpperCase(data?.category?.slug)}
         </Link>
       </div>
 
