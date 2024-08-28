@@ -1,5 +1,5 @@
 import React from "react";
-import Author from "../../ui/Author";
+import Author from "../../components/ui/Author";
 
 const AuthorDetail: React.FC = () => {
   return (

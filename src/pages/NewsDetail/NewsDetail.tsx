@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import Comment from "../../ui/Comment";
-import { useFetchNewsBySlug } from "../../../hooks/useFetch";
 import moment from "moment";
-import GoBack from "../../ui/GoBack";
-import ErrorMsg from "../../ui/ErrorMsg";
-import Spinner from "../../ui/Spinner";
-import { TextFirstLineUpperCase } from "../../../helper/helper";
+import Spinner from "../../components/ui/Spinner";
+import { useFetchNewsBySlug } from "../../hooks/useFetch";
+import ErrorMsg from "../../components/ui/ErrorMsg";
+import GoBack from "../../components/ui/GoBack";
+import { TextFirstLineUpperCase } from "../../helper/helper";
+import Comment from "../../components/ui/Comment";
 
 const NewsDetail: React.FC = () => {
   const { slug } = useParams();

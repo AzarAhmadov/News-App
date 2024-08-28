@@ -1,9 +1,9 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
-import { useFetchNewsByCategory } from "../../../hooks/useFetch";
-import NewsBlockItem from "../NewsBlock/NewsBlockItem/NewsBlockItem";
-import ErrorMsg from "../../ui/ErrorMsg";
-import Spinner from "../../ui/Spinner";
+import { useFetchNewsByCategory } from "../../hooks/useFetch";
+import Spinner from "../../components/ui/Spinner";
+import ErrorMsg from "../../components/ui/ErrorMsg";
+import NewsBlockItem from "../../components/share/NewsBlock/NewsBlockItem/NewsBlockItem";
 
 const Search: React.FC = () => {
   const [searchParams] = useSearchParams();

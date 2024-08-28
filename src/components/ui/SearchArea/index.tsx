@@ -1,6 +1,6 @@
 import React from "react";
 import Breadcrumb from "../Breadcrumb";
-import Search from "../../share/Search/Search";
+import Search from "../../../pages/Search/Search";
 
 const SearchArea: React.FC = () => {
 
