@@ -7,6 +7,7 @@ import ErrorMsg from "../../components/ui/ErrorMsg";
 import GoBack from "../../components/ui/GoBack";
 import { TextFirstLineUpperCase } from "../../helper/helper";
 import Comment from "../../components/ui/Comment";
+import Breadcrumb from "../../components/ui/Breadcrumb";
 
 const NewsDetail: React.FC = () => {
   const { slug } = useParams();

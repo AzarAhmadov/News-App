@@ -16,6 +16,9 @@ const useFetch = (initialState = false) => {
     } catch (e) {
       setLoading(false);
     }
+    finally{
+      setLoading(false)
+    }
   };
 
   return [data, fetchData, loading];
