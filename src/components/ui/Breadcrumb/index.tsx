@@ -9,10 +9,12 @@ const Breadcrumb: React.FC = () => {
   const segments = pathname.split("/");
   let url = "";
 
-  const NewFormat = {
-    home: "Ana Sehife",
-    search: "Axtaris",
-  };
+  console.log(segments);
+
+  // const NewFormat = {
+  //   home: "Ana Sehife",
+  //   search: "Axtaris",
+  // };
 
   return (
     <div className="mt-6 mb-2">
@@ -20,6 +22,8 @@ const Breadcrumb: React.FC = () => {
         <ul className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
           {segments.map((segment, i) => {
             url += `${segment}`;
+            const isLastSegment = i === segments.length - 1;
+
             return (
               <li key={i} aria-current="page">
                 <div className="flex items-center">
@@ -40,16 +44,26 @@ const Breadcrumb: React.FC = () => {
                       />
                     </svg>
                   )}
-                  <Link
-                    to={`/${url}`}
-                    className="text-sm font-medium text-gray-500 transition-all ms-1 hover:text-black md:ms-2"
-                  >
-                    {segment === "" ? "Home" : TextFirstLineUpperCase(segment)}
-                  </Link>
+
+                  {isLastSegment ? (
+                    <span className="text-sm font-medium text-gray-400 ms-1 md:ms-2">
+                      {TextFirstLineUpperCase(segment)} 
+                    </span>
+                  ) : (
+                    <Link
+                      to={`/${url}`}
+                      className="text-sm font-medium text-gray-500 transition-all ms-1 hover:text-black md:ms-2"
+                    >
+                      {segment === ""
+                        ? "Home"
+                        : TextFirstLineUpperCase(segment)}
+                    </Link>
+                  )}
                 </div>
               </li>
             );
           })}
+
           {category && (
             <li className="flex items-center">
               <svg
