@@ -1,6 +1,7 @@
 @layer base {
   body {
     @apply bg-bodyBack;
+    scroll-behavior: smooth;
   }
 
   ::-webkit-scrollbar {
