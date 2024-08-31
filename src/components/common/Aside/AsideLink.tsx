@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { TextFirstLineUpperCase } from "../../../helper/helper";
 import { FiGlobe } from "react-icons/fi";
 import { LuUserSquare2 } from "react-icons/lu";
 import {
@@ -12,6 +11,8 @@ import { TbDeviceDesktop } from "react-icons/tb";
 import { IoBarChartOutline, IoGameControllerOutline } from "react-icons/io5";
 import { GiMaterialsScience } from "react-icons/gi";
 import { AiOutlineEnvironment } from "react-icons/ai";
+import SkeletonLoad from "../../ui/Skeleton/SkeletonLoad";
+import { AsideLinkSkeleton } from "../../ui/Skeleton/SkeletonContent";
 
 type IconTemplateProps = {
   slug: keyof IconTemplate;
@@ -47,22 +48,26 @@ const IconTemplate: React.FC<IconTemplateProps> = ({ slug }) => {
   return icons[slug];
 };
 
-const AsideLink: React.FC<any> = ({ item, category }) => {
+const AsideLink: React.FC<any> = ({ item, category, skeleton = false }) => {
   return (
-    <li>
-      <Link
-        className={`flex items-center gap-x-4 py-3 ps-8 transition-all ${
-          item.slug === category &&
-          "rounded-r-full bg-activeLink font-medium text-primaryDarker"
-        }`}
-        to={`search?category=${item.slug}`}
-      >
-        <span>
-          <IconTemplate slug={item.slug} />
-        </span>
-        {TextFirstLineUpperCase(item.slug)}
-      </Link>
-    </li>
+    <>
+      {skeleton ? (
+        <AsideLinkSkeleton />
+      ) : (
+        <li>
+          <Link
+            className={`flex items-center gap-x-4 py-3 ps-8 transition-all ${
+              item?.slug === category &&
+              "rounded-r-full bg-activeLink font-medium text-primaryDarker"
+            }`}
+            to={`search?category=${item?.slug}`}
+          >
+            <IconTemplate slug={item?.slug} />
+            {item?.slug}
+          </Link>
+        </li>
+      )}
+    </>
   );
 };
 

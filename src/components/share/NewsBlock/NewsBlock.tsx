@@ -3,11 +3,12 @@ import NewsBlockItem from "./NewsBlockItem/NewsBlockItem";
 import { typeNewsBlock } from "../../../types/types";
 import { useFetchAllNews } from "../../../hooks/useFetch";
 import LoadMore from "../../ui/LoadMore";
+import SkeletonArea from "../../ui/Skeleton/SkeletonArea";
 
 const NewsBlock: React.FC<typeNewsBlock> = ({ title, icon }) => {
   const [page, setPage] = useState(1);
   const newsLimit = 10;
-  const [data] = useFetchAllNews(page, newsLimit);
+  const [data, loading] = useFetchAllNews(page, newsLimit);
   const [newsData, setNewsData] = useState([]);
   const [hasMoreData, setHasMoreData] = useState(true);
 
@@ -31,9 +32,13 @@ const NewsBlock: React.FC<typeNewsBlock> = ({ title, icon }) => {
         <h2 className="text-lg font-medium"> {title} </h2>
       </div>
       <div className="grid grid-cols-3 gap-3 py-5">
-        {newsData?.map((item: any, index: number) => (
-          <NewsBlockItem item={item} key={index} />
-        ))}
+        {
+          <SkeletonArea count={newsLimit} type="newsItem" loading={loading}>
+            {newsData?.map((item: any, index: number) => (
+              <NewsBlockItem loading={loading} item={item} key={index} />
+            ))}
+          </SkeletonArea>
+        }
       </div>
       {hasMoreData && <LoadMore handlePage={handlePage} />}
     </>
