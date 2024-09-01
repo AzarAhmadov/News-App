@@ -3,93 +3,104 @@ import { API } from "../utils/api";
 import NewsApi from "../api/news.api";
 import AuthorApi from "../api/author.api";
 
-const useFetch = (initialState = false) => {
-  const [data, setData] = useState(initialState);
-  const [loading, setLoading] = useState(false);
+interface ApiResponse<T> {
+  data: T;
+}
 
-  const fetchData = async (url: string, params = {}, list = true) => {
+type FetchFunction = (
+  url: string,
+  params?: Record<string, any>,
+  list?: boolean,
+) => Promise<void>;
+
+function useFetch<T>(initialState: T): [T, FetchFunction, boolean] {
+  const [data, setData] = useState<T>(initialState);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const fetchData: FetchFunction = async (url, params = {}, list = true) => {
     try {
       setLoading(true);
-      const res: any = await API.get(url, { params });
-      setData(list ? res.data : res);
-      setLoading(false);
+      const res: ApiResponse<T> = await API.get(url, { params });
+      setData(list ? res.data : (res as unknown as T));
     } catch (e) {
+      console.error("Error fetching data:", e);
+    } finally {
       setLoading(false);
-    }
-    finally{
-      setLoading(false)
     }
   };
 
   return [data, fetchData, loading];
-};
+}
 
-export const useFetchCategories = () => {
-  const [data, fetchData, loading] = useFetch([]);
+export function useFetchCategories(): [string[], boolean] {
+  const [data, fetchData, loading] = useFetch<string[]>([]);
 
   useEffect(() => {
     fetchData(NewsApi.categories, {}, false);
   }, []);
 
   return [data, loading];
-};
+}
 
-export const useFetchAllNews = (page: number, limit: number) => {
-  const [data, fetchData, loading] = useFetch([]);
+export function useFetchAllNews(page: number, limit: number): [any[], boolean] {
+  const [data, fetchData, loading] = useFetch<any[]>([]);
 
   useEffect(() => {
     fetchData(NewsApi.all, { page, limit }, true);
   }, [page, limit]);
 
   return [data, loading];
-};
+}
 
-export const useFetchNewsBySlug = (slug: string) => {
-  const [data, fetchData, loading] = useFetch([]);
+export function useFetchNewsBySlug(slug: string): [any, boolean] {
+  const [data, fetchData, loading] = useFetch<any>({});
 
   useEffect(() => {
     fetchData(NewsApi.bySlug.replace(":slug", slug), {}, false);
-  }, []);
+  }, [slug]);
 
   return [data, loading];
-};
+}
 
-export const useFetchNewsByCategory = (category: string) => {
-  const [data, fetchData, loading] = useFetch([]);
+export function useFetchNewsByCategory(category: string): [any[], boolean] {
+  const [data, fetchData, loading] = useFetch<any[]>([]);
 
   useEffect(() => {
     fetchData(NewsApi.all, { category }, true);
   }, [category]);
 
   return [data, loading];
-};
+}
 
-export const useFetchAutors = () => {
-  const [data, fetchData, loading] = useFetch([]);
+export function useFetchAuthors(): [any[], boolean] {
+  const [data, fetchData, loading] = useFetch<any[]>([]);
 
   useEffect(() => {
     fetchData(AuthorApi.all, {}, false);
   }, []);
 
   return [data, loading];
-};
+}
 
-export const useFetchAuthorBySlug = (slug: string) => {
-  const [data, fetchData, loading] = useFetch();
+export function useFetchAuthorBySlug(slug: string): [any, boolean] {
+  const [data, fetchData, loading] = useFetch<any>({});
 
   useEffect(() => {
     fetchData(AuthorApi.bySlug.replace(":slug", slug), {}, false);
-  }, []);
+  }, [slug]);
 
   return [data, loading];
-};
+}
 
-export const useFetchNewsAuthorBySlug = (slug: string, limit: number) => {
-  const [data, fetchData, loading] = useFetch();
+export function useFetchNewsAuthorBySlug(
+  slug: string,
+  limit: number,
+): [any, boolean] {
+  const [data, fetchData, loading] = useFetch<any>({});
 
   useEffect(() => {
     fetchData(NewsApi.all, { authorSlug: slug, limit }, false);
-  }, []);
+  }, [slug, limit]);
 
   return [data, loading];
-};
+}
