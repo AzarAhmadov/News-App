@@ -1,6 +1,9 @@
 import React from "react";
 import { IoNewspaperOutline } from "react-icons/io5";
-import { useFetchAuthorBySlug, useFetchNewsAuthorBySlug} from "../../../hooks/useFetch";
+import {
+  useFetchAuthorBySlug,
+  useFetchNewsAuthorBySlug,
+} from "../../../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import AuthorNews from "../AuthorNews";
 import GoBack from "../GoBack";
@@ -17,7 +20,9 @@ const Author: React.FC = () => {
   }
 
   if (!autorSlugData) {
-    return <ErrorMsg text="The author you are looking for is not available..." />;
+    return (
+      <ErrorMsg text="The author you are looking for is not available..." />
+    );
   }
 
   return (
