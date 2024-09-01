@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { MdLogin } from "react-icons/md";
 
 const Header: React.FC = () => {
+  const token = false;
+
   return (
     <header className="flex items-center gap-x-5">
       <form className="flex items-center justify-between w-full px-3 py-3 border border-gray-300 rounded-md gap-x-3 bg-inputBg">
@@ -26,13 +28,26 @@ const Header: React.FC = () => {
         <IoIosArrowForward className="text-[20px]" />
       </Link>
 
-      <Link
-        className="flex items-center px-10 py-3 text-white rounded-md gap-x-2 bg-primaryDarker"
-        to={""}
-      >
-        Login
-        <MdLogin className="text-xl" />
-      </Link>
+      {token ? (
+        <div className="flex items-center gap-x-3 whitespace-nowrap">
+          <figure className="size-[3rem] flex-shrink-0 overflow-hidden rounded-full">
+            <img
+              className="object-cover rounded-full size-full"
+              src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+              alt=""
+            />
+          </figure>
+          <h3>Azar Ahmadov</h3>
+        </div>
+      ) : (
+        <Link
+          className="flex items-center px-10 py-3 text-white rounded-md gap-x-2 bg-primaryDarker"
+          to={""}
+        >
+          Login
+          <MdLogin className="text-xl" />
+        </Link>
+      )}
     </header>
   );
 };
