@@ -8,7 +8,8 @@ const LoadMore: React.FC<TypeLoadMore> = ({ handlePage }) => {
       <Button
         onClick={() => handlePage()}
         size="lg"
-        type="black"
+        type="button"
+        variant="black"
         outline={true}
         rounded={true}
       >
