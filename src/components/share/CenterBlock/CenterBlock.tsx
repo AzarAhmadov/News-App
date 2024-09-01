@@ -39,7 +39,8 @@ const CenterBlock: React.FC = () => {
                 outline={true}
                 width="full"
                 size="md"
-                type="black"
+                type="button"
+                variant="black"
                 rounded={true}
                 to={`author/${item.slug}`}
               >

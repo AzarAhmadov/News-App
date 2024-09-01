@@ -2,13 +2,14 @@ import { ReactElement, ReactNode } from "react";
 
 export type TypeButton = {
   children: ReactNode;
-  type: string;
+  type: "submit" | "button";
   rounded: boolean;
   size: string;
   width?: string;
   outline?: boolean;
   to?: string;
   onClick?: () => void;
+  variant: string;
 };
 
 export type typeSlider = {

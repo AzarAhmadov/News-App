@@ -12,12 +12,11 @@ const Subscribe: React.FC = () => {
         </h3>
       </div>
       <div className="flex items-center justify-between mt-3">
-        <div className="font-bold text-white text-[1.7rem]">
+        <div className="text-[1.7rem] font-bold text-white">
           $8<small className="text-[1rem] font-normal">/m</small>
         </div>
-        <Button type="primaryDarker" size="sm" rounded={true}>
-          {" "}
-          Upgrate{" "}
+        <Button type="button" variant="primaryDarker" size="sm" rounded={true}>
+          Upgrate
         </Button>
       </div>
     </div>

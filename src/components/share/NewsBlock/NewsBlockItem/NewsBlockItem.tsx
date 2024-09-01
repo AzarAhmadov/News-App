@@ -17,9 +17,9 @@ const NewsBlockItem: React.FC<any> = ({ item, skeleton = false }) => {
           <h3 className="text-lg font-medium leading-7 line-clamp-2 text-amberBlack">
             {skeleton ? <TitleSkeleton /> : item?.title}
           </h3>
-          <p className="mt-2 text-sm font-normal leading-6 line-clamp-3 text-paragraphColor">
+          <div className="mt-2 text-sm font-normal leading-6 line-clamp-3 text-paragraphColor">
             {skeleton ? <DescriptionSkeleton /> : item?.description}
-          </p>
+          </div>
         </div>
         <div>
           {skeleton ? (

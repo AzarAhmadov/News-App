@@ -5,9 +5,7 @@ import Spinner from "../../components/ui/Spinner";
 import { useFetchNewsBySlug } from "../../hooks/useFetch";
 import ErrorMsg from "../../components/ui/ErrorMsg";
 import GoBack from "../../components/ui/GoBack";
-import { TextFirstLineUpperCase } from "../../helper/helper";
 import Comment from "../../components/ui/Comment";
-import Breadcrumb from "../../components/ui/Breadcrumb";
 
 const NewsDetail: React.FC = () => {
   const { slug } = useParams();
@@ -15,7 +13,7 @@ const NewsDetail: React.FC = () => {
   const [data, loading] = useFetchNewsBySlug(slug);
 
   if (loading) {
-    return <Spinner/>
+    return <Spinner />;
   }
 
   if (data.length === 0) {
@@ -32,7 +30,7 @@ const NewsDetail: React.FC = () => {
           className="inline-flex px-4 py-1 mt-3 rounded-md bg-activeLink text-primaryDark"
           to={`/search?category=${data?.category?.slug}`}
         >
-          {TextFirstLineUpperCase(data?.category?.slug)}
+          {data?.category?.name}
         </Link>
       </div>
 
@@ -53,7 +51,7 @@ const NewsDetail: React.FC = () => {
         <h3 className="mb-2 text-paragraphColor">
           {moment(data?.published_date, "YYYYMMDD").fromNow()}
         </h3>
-        <Link to={""}>by {data.author?.fullname}</Link>
+        <Link to={""}>by {data?.author?.fullname}</Link>
       </div>
       <Comment />
     </>

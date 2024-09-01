@@ -11,7 +11,6 @@ import { TbDeviceDesktop } from "react-icons/tb";
 import { IoBarChartOutline, IoGameControllerOutline } from "react-icons/io5";
 import { GiMaterialsScience } from "react-icons/gi";
 import { AiOutlineEnvironment } from "react-icons/ai";
-import SkeletonLoad from "../../ui/Skeleton/SkeletonLoad";
 import { AsideLinkSkeleton } from "../../ui/Skeleton/SkeletonContent";
 
 type IconTemplateProps = {

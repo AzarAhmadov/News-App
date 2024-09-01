@@ -2,15 +2,16 @@ import React, { memo } from "react";
 import classNames from "classnames";
 import "./button.css";
 import { TypeButton } from "../../../types/types";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Button: React.FC<TypeButton> = ({
   children,
-  type,
+  variant,
   rounded,
   size,
   width,
   outline,
+  type = "button",
   to,
   onClick = () => {},
 }) => {
@@ -26,6 +27,7 @@ const Button: React.FC<TypeButton> = ({
 
   return (
     <button
+      type={type}
       onClick={() => handleClick()}
       className={classNames(
         {
@@ -33,7 +35,7 @@ const Button: React.FC<TypeButton> = ({
           "btn-rounded": rounded,
           "btn-outline": outline,
         },
-        [`btn-${type}`, `btn-${size}`, `btn-${width}`],
+        [`btn-${variant}`, `btn-${size}`, `btn-${width}`],
       )}
     >
       {children}
