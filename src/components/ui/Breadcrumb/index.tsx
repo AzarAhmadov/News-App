@@ -9,8 +9,6 @@ const Breadcrumb: React.FC = () => {
   const segments = pathname.split("/");
   let url = "";
 
-  console.log(segments);
-
   // const NewFormat = {
   //   home: "Ana Sehife",
   //   search: "Axtaris",
