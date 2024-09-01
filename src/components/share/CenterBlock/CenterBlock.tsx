@@ -7,10 +7,10 @@ import Button from "../../ui/Button";
 import { MdArrowForwardIos } from "react-icons/md";
 import { BiWorld } from "react-icons/bi";
 import { FaRegNewspaper } from "react-icons/fa6";
-import { useFetchAutors } from "../../../hooks/useFetch";
+import { useFetchAuthors } from "../../../hooks/useFetch";
 
 const CenterBlock: React.FC = () => {
-  const [data] = useFetchAutors();
+  const [data] = useFetchAuthors();
 
   return (
     <>
