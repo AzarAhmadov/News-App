@@ -1,10 +1,20 @@
 import React from "react";
-import { IoIosSearch, IoIosArrowForward } from "react-icons/io";
+import { IoIosSearch, IoIosArrowForward, IoIosArrowUp } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { MdLogin } from "react-icons/md";
+import { serviceSetToggleStatus } from "../../../services/app.service";
+import { useStoreAuth } from "../../../store/features/auth.slice";
+import { IoIosArrowDown } from "react-icons/io";
+import { CiLogout } from "react-icons/ci";
+import Dropdown from "../../ui/Dropdown";
 
 const Header: React.FC = () => {
-  const token = false;
+  const { token, user } = useStoreAuth();
+
+  const Lagout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
 
   return (
     <header className="flex items-center gap-x-5">
@@ -29,24 +39,40 @@ const Header: React.FC = () => {
       </Link>
 
       {token ? (
-        <div className="flex items-center gap-x-3 whitespace-nowrap">
-          <figure className="size-[3rem] flex-shrink-0 overflow-hidden rounded-full">
-            <img
-              className="object-cover rounded-full size-full"
-              src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
-              alt=""
-            />
-          </figure>
-          <h3>Azar Ahmadov</h3>
-        </div>
+        <Dropdown
+          DropdownHeader={
+            <div className="flex items-center cursor-pointer gap-x-3 whitespace-nowrap">
+              <figure className="size-[3rem] flex-shrink-0 overflow-hidden rounded-full p-1">
+                <img
+                  className="object-cover rounded-full size-full"
+                  src={user?.photo}
+                  alt={user?.name}
+                />
+              </figure>
+              <h3>
+                {user?.name}
+                <span className="text-sm ms-1">{user?.surname}</span>
+              </h3>
+            </div>
+          }
+        >
+          <div className="absolute -bottom-[3.3rem] left-0 w-full rounded-md bg-primaryDark p-3 text-center text-white">
+            <button
+              onClick={Lagout}
+              className="mx-auto flex items-center justify-center gap-x-3 font-[500] text-white"
+            >
+              <CiLogout className="text-xl" /> Logout
+            </button>
+          </div>
+        </Dropdown>
       ) : (
-        <Link
+        <button
           className="flex items-center px-10 py-3 text-white rounded-md gap-x-2 bg-primaryDarker"
-          to={""}
+          onClick={serviceSetToggleStatus}
         >
           Login
           <MdLogin className="text-xl" />
-        </Link>
+        </button>
       )}
     </header>
   );
