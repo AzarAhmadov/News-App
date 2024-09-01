@@ -6,7 +6,7 @@ import Footer from "../components/common/Footer/Footer";
 
 const Home: React.FC = () => {
   return (
-    <div className="grid h-full grid-cols-[260px_calc(100%_-_325px)] gap-[35px] pt-3">
+    <div className="grid grid-cols-[260px_calc(100%_-_325px)] gap-[35px] pt-3">
       <Aside />
       <div className="container flex flex-col justify-between h-screen mx-auto">
         <div>
