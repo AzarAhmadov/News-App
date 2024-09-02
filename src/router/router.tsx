@@ -4,7 +4,7 @@ import CenterBlock from "../components/share/CenterBlock/CenterBlock";
 import SearchArea from "../components/ui/SearchArea";
 import NewsDetail from "../pages/NewsDetail/NewsDetail";
 import AuthorDetail from "../pages/AuthorDetail/AuthorDetail";
-import Modal from "../components/common/Modals/Modal/Modal";
+import Modal from "../components/common/Modals/Login/Login";
 
 const Routers = createBrowserRouter([
   {
