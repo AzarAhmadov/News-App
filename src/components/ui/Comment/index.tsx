@@ -15,7 +15,7 @@ const Comment: React.FC = () => {
               className="h-[10rem] w-full resize-none rounded-lg p-3 outline-none"
               placeholder="Enter your comment here.."
             />
-            <Button type="primaryDark" rounded={true} size="sm">
+            <Button type="submit" variant="primaryDark" rounded={true} size="sm">
               Post Comment
             </Button>
           </div>

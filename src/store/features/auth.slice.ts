@@ -2,20 +2,22 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 import { RootState } from "../app.store";
 
+interface IUser {
+  photo: string;
+  name: string;
+  surname: string;
+}
+
 interface IinitialState {
-  user: {
-    photo: string;
-    name: string;
-    surname: string;
-  };
+  user: IUser | null;
   token: string;
 }
 
 const initialState: IinitialState = {
   token: localStorage.getItem("token") || "",
   user: localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user"))
-    : false,
+    ? JSON.parse(localStorage.getItem("user") as string)
+    : null,
 };
 
 const AuthSlice = createSlice({

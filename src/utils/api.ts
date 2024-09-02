@@ -1,9 +1,10 @@
 import axios from "axios";
+import { serviceSetErrors } from "../services/app.service";
 
 const service = () => {
   const headers = {
     "Content-Type": "application/json",
-    "Accept": "application/json",
+    Accept: "application/json",
     "Access-Control-Max-Age": 86400,
     "Access-Control-Allow-Origin": "*",
   };
@@ -20,6 +21,10 @@ const service = () => {
   };
 
   const responseReject = (err: any) => {
+    if (error?.status === 422) {
+      serviceSetErrors(error?.data);
+    }
+
     return Promise.reject(err);
   };
 

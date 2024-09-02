@@ -1,5 +1,5 @@
 import { store } from "../store/app.store";
-import { setToggle } from "../store/features/app.slice";
+import { setErrors, setToggle } from "../store/features/app.slice";
 import { setToken, setUser } from "../store/features/auth.slice";
 
 export const serviceSetToggleStatus = () => {
@@ -15,3 +15,6 @@ export const serviceSetUser = (value: string) => {
   window.location.reload();
 };
 
+export const serviceSetErrors = (value: string) => {
+  store.dispatch(setErrors(value));
+};

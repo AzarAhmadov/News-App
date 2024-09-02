@@ -27,7 +27,7 @@ const Modal: React.FC = () => {
     serviceAuthLogin(inputs);
   };
 
-  const { toggle } = useStoreApp();
+  const { toggle, errors } = useStoreApp();
 
   useEffect(() => {
     if (toggle) {
@@ -37,12 +37,14 @@ const Modal: React.FC = () => {
     }
   }, [toggle]);
 
+  console.log(errors);
+
   return (
     <div
       className={classNames({
         "visible fixed inset-0 z-10 grid h-auto scale-100 place-items-center p-1 opacity-100 backdrop-blur-sm transition-all duration-200":
           toggle,
-        "invisible scale-75 opacity-0 h-0": !toggle,
+        "invisible h-0 scale-75 opacity-0": !toggle,
       })}
     >
       <div className="w-full max-w-[450px] rounded-md border border-gray-200 bg-white">
@@ -81,12 +83,7 @@ const Modal: React.FC = () => {
                 id="password"
               />
             </div>
-            <Button
-              size="sm"
-              type="submit"
-              variant="black"
-              rounded={true}
-            >
+            <Button size="sm" type="submit" variant="black" rounded={true}>
               Login
             </Button>
           </form>

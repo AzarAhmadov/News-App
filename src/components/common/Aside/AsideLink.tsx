@@ -62,7 +62,7 @@ const AsideLink: React.FC<any> = ({ item, category, skeleton = false }) => {
             to={`search?category=${item?.slug}`}
           >
             <IconTemplate slug={item?.slug} />
-            {item?.slug}
+            {item?.name}
           </Link>
         </li>
       )}
