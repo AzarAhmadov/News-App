@@ -57,7 +57,7 @@ const AsideLink: React.FC<any> = ({ item, category, skeleton = false }) => {
           <Link
             className={`flex items-center gap-x-4 py-3 ps-8 transition-all ${
               item?.slug === category &&
-              "rounded-r-full bg-activeLink font-medium text-primaryDarker"
+              "rounded-r-full bg-activeLink dark:bg-gray-800 dark:text-white font-medium text-primaryDarker"
             }`}
             to={`search?category=${item?.slug}`}
           >

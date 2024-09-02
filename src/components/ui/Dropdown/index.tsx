@@ -15,7 +15,7 @@ const Dropdown: React.FC<any> = ({ DropdownHeader, children }) => {
   return (
     <>
       <div className="relative flex" onClick={handleOpenModal}>
-        <div className="flex items-center px-4 border border-gray-300 rounded-md gap-x-3">
+        <div className="flex items-center px-4 border border-gray-300 rounded-md dark:border-gray-600 gap-x-3">
           {DropdownHeader}
           {isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
         </div>

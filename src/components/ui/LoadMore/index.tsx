@@ -4,7 +4,7 @@ import { TypeLoadMore } from "../../../types/types";
 
 const LoadMore: React.FC<TypeLoadMore> = ({ handlePage }) => {
   return (
-    <div className="flex justify-center pt-3 pb-5">
+    <div className="flex justify-center pb-5 pt-3">
       <Button
         onClick={() => handlePage()}
         size="lg"

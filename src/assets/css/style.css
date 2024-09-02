@@ -1,6 +1,6 @@
 @layer base {
   body {
-    @apply bg-bodyBack;
+    @apply bg-bodyBack dark:bg-gray-900 dark:text-gray-300 transition-all;
     scroll-behavior: smooth;
   }
 

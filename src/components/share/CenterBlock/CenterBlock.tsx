@@ -21,7 +21,7 @@ const CenterBlock: React.FC = () => {
       <Slide title="Creators you should follow" icon={<LuPencilLine />}>
         {data?.data?.map((item: any, index: number) => (
           <SwiperSlide key={index}>
-            <div className="flex flex-col items-center p-4 bg-white rounded-md gap-y-3">
+            <div className="flex flex-col items-center p-4 bg-white rounded-md dark:bg-gray-800 gap-y-3">
               <figure className="size-[85px] overflow-hidden rounded-full border border-black/10 p-1">
                 <img
                   className="object-cover rounded-full size-full"
@@ -31,7 +31,7 @@ const CenterBlock: React.FC = () => {
               </figure>
               <div className="text-center">
                 <h3 className="text-md line-clamp-1">{item.fullname}</h3>
-                <span className="text-sm line-clamp-1 text-paragraphColor">
+                <span className="text-sm line-clamp-1 text-paragraphColor dark:text-white">
                   {item.agency}
                 </span>
               </div>

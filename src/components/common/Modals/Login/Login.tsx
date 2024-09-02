@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Button from "../../../ui/Button";
 import { serviceAuthLogin } from "../../../../services/auth.service";
@@ -6,7 +6,7 @@ import { useStoreApp } from "../../../../store/features/app.slice";
 import classNames from "classnames";
 import { serviceSetToggleStatus } from "../../../../services/app.service";
 
-const Modal: React.FC = () => {
+const Login: React.FC = () => {
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -29,26 +29,24 @@ const Modal: React.FC = () => {
 
   const { toggle, errors } = useStoreApp();
 
-  useEffect(() => {
-    if (toggle) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-  }, [toggle]);
-
-  console.log(errors);
+  if (toggle) {
+    document.body.classList.add("overflow-hidden");
+  } else {
+    document.body.classList.remove("overflow-hidden");
+  }
 
   return (
     <div
-      className={classNames({
-        "visible fixed inset-0 z-10 grid h-auto scale-100 place-items-center p-1 opacity-100 backdrop-blur-sm transition-all duration-200":
-          toggle,
-        "invisible h-0 scale-75 opacity-0": !toggle,
-      })}
+      className={classNames(
+        "fixed inset-0 z-10 grid h-screen w-full place-items-center backdrop-blur-sm transition-all duration-300",
+        {
+          "visible scale-100 opacity-100": toggle,
+          "invisible scale-90 opacity-0": !toggle,
+        },
+      )}
     >
-      <div className="w-full max-w-[450px] rounded-md border border-gray-200 bg-white">
-        <div className="flex items-center justify-between p-5 border-b">
+      <div className="w-full max-w-[450px] rounded-md border border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-900">
+        <div className="flex items-center justify-between border-b p-5 dark:border-gray-600">
           <h4 className="text-xl">Login</h4>
           <IoMdClose
             onClick={serviceSetToggleStatus}
@@ -57,7 +55,7 @@ const Modal: React.FC = () => {
         </div>
         <div className="py-7 pe-5 ps-5">
           <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
-            <div className="flex flex-col mb-2">
+            <div className="mb-2 flex flex-col">
               <label htmlFor="email">
                 Email <span className="text-red-500">*</span>
               </label>
@@ -65,10 +63,13 @@ const Modal: React.FC = () => {
                 onChange={handleChnage}
                 value={inputs.email}
                 name="email"
-                className="p-2 mt-2 border rounded-md outline-none border-gray-400/40"
+                className={`mt-2 rounded-md border border-gray-400/40 p-2 outline-none dark:bg-gray-800 ${errors?.email ? "border-red-600" : "border-gray-400/40"}`}
                 type="email"
                 id="email"
               />
+              {errors.email && (
+                <span className="mt-1 text-red-500">{errors?.email}</span>
+              )}
             </div>
             <div className="flex flex-col">
               <label htmlFor="password">
@@ -78,10 +79,13 @@ const Modal: React.FC = () => {
                 onChange={handleChnage}
                 value={inputs.password}
                 name="password"
-                className="p-2 mt-2 border rounded-md outline-none border-gray-400/40"
+                className={`mt-2 rounded-md border border-gray-400/40 p-2 outline-none dark:bg-gray-800 ${errors?.password ? "border-red-600" : "border-gray-400/40"}`}
                 type="password"
                 id="password"
               />
+              {errors.password && (
+                <span className="mt-1 text-red-500">{errors?.password}</span>
+              )}
             </div>
             <Button size="sm" type="submit" variant="black" rounded={true}>
               Login
@@ -93,4 +97,4 @@ const Modal: React.FC = () => {
   );
 };
 
-export default Modal;
+export default Login;

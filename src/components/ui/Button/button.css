@@ -7,7 +7,7 @@
 }
 
 .btn-outline {
-  @apply transition-all border border-black hover:bg-transparent hover:text-black;
+  @apply transition-all border border-black hover:bg-transparent hover:text-black dark:border-gray-400/30 dark:bg-white dark:text-white dark:hover:text-white;
 }
 
 .btn-full {
@@ -31,15 +31,15 @@
 }
 
 .btn-primaryDark {
-  @apply text-white bg-primaryDark;
+  @apply text-white bg-primaryDark dark:bg-gray-900;
 }
 
 .btn-primaryDarker {
-  @apply text-white bg-primaryDarker;
+  @apply text-white bg-primaryDarker dark:bg-gray-900;
 }
 
 .btn-black {
-  @apply text-white bg-slate-950;
+  @apply text-white bg-slate-950 dark:bg-gray-800;
 }
 
 .btn-outline-transparent {
