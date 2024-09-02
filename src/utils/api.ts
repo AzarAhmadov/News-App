@@ -1,5 +1,6 @@
 import axios from "axios";
 import { serviceSetErrors } from "../services/app.service";
+import { notification } from "../helper/helper";
 
 const service = () => {
   const headers = {
@@ -21,8 +22,11 @@ const service = () => {
   };
 
   const responseReject = (err: any) => {
-    if (error?.status === 422) {
-      serviceSetErrors(error?.data);
+    const error = err.response;
+
+    if (error.status === 422) {
+      serviceSetErrors(error.data);
+      notification("error", "Username or password is incorrect");
     }
 
     return Promise.reject(err);
