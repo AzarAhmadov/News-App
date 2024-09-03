@@ -30,10 +30,10 @@ const Aside: React.FC = () => {
 
   return (
     <aside>
-      <div className="fixed z-10 flex h-screen flex-col justify-between gap-3 overflow-y-auto pb-6 pe-2">
+      <div className="fixed z-10 flex flex-col justify-between h-screen gap-3 pb-6 overflow-y-auto pe-2">
         <div>
           <Link
-            className="mb-8 flex items-center gap-x-4 ps-8 pt-3 text-lg font-medium text-primaryDarker"
+            className="flex items-center pt-3 mb-8 text-lg font-medium dark:text-white gap-x-4 ps-8 text-primaryDarker"
             to={"/"}
           >
             <Logo /> Aster News
