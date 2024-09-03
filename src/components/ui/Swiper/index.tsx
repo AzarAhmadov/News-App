@@ -11,16 +11,22 @@ const Slide: React.FC<typeSlider> = ({ title, icon, children }) => {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-7">
+      <div className="mb-7 flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           {icon}
           <h3 className="font-medium">{title}</h3>
         </div>
         <div className="flex space-x-3">
-          <button ref={slidePrev} className="text-xl cursor-pointer disabled:opacity-20">
+          <button
+            ref={slidePrev}
+            className="cursor-pointer text-xl disabled:opacity-20"
+          >
             <MdArrowBack />
           </button>
-          <button ref={slideNext} className="text-xl cursor-pointer disabled:opacity-20">
+          <button
+            ref={slideNext}
+            className="cursor-pointer text-xl disabled:opacity-20"
+          >
             <MdArrowForward />
           </button>
         </div>
