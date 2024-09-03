@@ -11,7 +11,7 @@ import moment from "moment";
 
 const NewsBlockItem: React.FC<any> = ({ item, skeleton = false }) => {
   return (
-    <article className="p-5 transition-all bg-white rounded-md shadow-sm dark:border dark:border-gray-300/10 hover:scale-105 dark:bg-gray-900">
+    <article className="p-5 transition-all bg-white border rounded-md shadow-sm dark:border-gray-300/10 hover:scale-105 dark:bg-gray-800">
       <div className="relative flex justify-between gap-x-4">
         <div className="w-full">
           <h3 className="text-lg font-medium leading-7 line-clamp-2 text-amberBlack dark:text-white">

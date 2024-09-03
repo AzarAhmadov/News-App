@@ -17,17 +17,16 @@ const Breadcrumb: React.FC = () => {
   return (
     <div className="mt-6 mb-2">
       <nav className="flex" aria-label="Breadcrumb">
-        <ul className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+        <ul className="flex gap-x-2">
           {segments.map((segment, i) => {
             url += `${segment}`;
-            const isLastSegment = i === segments.length - 1;
 
             return (
               <li key={i} aria-current="page">
-                <div className="flex items-center">
+                <div className="flex items-center text-md">
                   {url.length > 1 && (
                     <svg
-                      className="w-3 h-3 mx-1 text-gray-400 rtl:rotate-180"
+                      className="w-3 h-3 text-gray-400"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -43,19 +42,10 @@ const Breadcrumb: React.FC = () => {
                     </svg>
                   )}
 
-                  {isLastSegment ? (
-                    <span className="text-sm font-medium text-gray-400 ms-1 md:ms-2">
-                      {TextFirstLineUpperCase(segment)} 
-                    </span>
+                  {url === "" ? (
+                    <Link to={"/"}>Home</Link>
                   ) : (
-                    <Link
-                      to={`/${url}`}
-                      className="text-sm font-medium text-gray-500 transition-all ms-1 hover:text-black md:ms-2"
-                    >
-                      {segment === ""
-                        ? "Home"
-                        : TextFirstLineUpperCase(segment)}
-                    </Link>
+                    <Link className="ms-2" to={`/${url}`}>{TextFirstLineUpperCase(url)}</Link>
                   )}
                 </div>
               </li>
@@ -65,7 +55,7 @@ const Breadcrumb: React.FC = () => {
           {category && (
             <li className="flex items-center">
               <svg
-                className="w-3 h-3 mx-1 text-gray-400 rtl:rotate-180"
+                className="w-3 h-3 text-gray-400"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -79,7 +69,7 @@ const Breadcrumb: React.FC = () => {
                   d="M1 9L5 5 1 1"
                 />
               </svg>
-              <span className="text-sm font-medium text-gray-500 ms-1 md:ms-2 dark:text-gray-400">
+              <span className="font-medium text-gray-500 text-md ms-2 dark:text-gray-400">
                 {TextFirstLineUpperCase(category)}
               </span>
             </li>
