@@ -9,7 +9,7 @@ const NewsBlock: React.FC<typeNewsBlock> = ({ title, icon }) => {
   const [page, setPage] = useState(1);
   const newsLimit = 10;
   const [data, loading] = useFetchAllNews(page, newsLimit);
-  const [newsData, setNewsData] = useState([]);
+  const [newsData, setNewsData] = useState<any[]>([]);
   const [hasMoreData, setHasMoreData] = useState(true);
 
   const handlePage = () => {
@@ -34,7 +34,7 @@ const NewsBlock: React.FC<typeNewsBlock> = ({ title, icon }) => {
       <div className="grid grid-cols-3 gap-3 py-5">
         {
           <SkeletonArea count={newsLimit} type="newsItem" loading={loading}>
-            {newsData?.map((item: any, index: number) => (
+            {newsData?.map((item, index: number) => (
               <NewsBlockItem loading={loading} item={item} key={index} />
             ))}
           </SkeletonArea>
