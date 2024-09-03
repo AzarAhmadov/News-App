@@ -45,7 +45,9 @@ const Breadcrumb: React.FC = () => {
                   {url === "" ? (
                     <Link to={"/"}>Home</Link>
                   ) : (
-                    <Link className="ms-2" to={`/${url}`}>{TextFirstLineUpperCase(url)}</Link>
+                    <Link className="ms-2" to={`/${url}`}>
+                      {TextFirstLineUpperCase(url)}
+                    </Link>
                   )}
                 </div>
               </li>
