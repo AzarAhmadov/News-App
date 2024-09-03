@@ -52,7 +52,7 @@ export function useFetchAllNews(page: number, limit: number): [any[], boolean] {
   return [data, loading];
 }
 
-export function useFetchNewsBySlug(slug: string): [any, boolean] {
+export function useFetchNewsBySlug(slug: any): [any, boolean] {
   const [data, fetchData, loading] = useFetch<any>({});
 
   useEffect(() => {
@@ -62,12 +62,16 @@ export function useFetchNewsBySlug(slug: string): [any, boolean] {
   return [data, loading];
 }
 
-export function useFetchNewsByCategory(category: string): [any[], boolean] {
+export function useFetchNewsByCategory(
+  category: any,
+  page = 1,
+  limit = 9,
+): [any[], boolean] {
   const [data, fetchData, loading] = useFetch<any[]>([]);
 
   useEffect(() => {
-    fetchData(NewsApi.all, { category }, true);
-  }, [category]);
+    fetchData(NewsApi.all, { category, page, limit }, true);
+  }, [category, page]);
 
   return [data, loading];
 }
@@ -82,7 +86,7 @@ export function useFetchAuthors(): [any[], boolean] {
   return [data, loading];
 }
 
-export function useFetchAuthorBySlug(slug: string): [any, boolean] {
+export function useFetchAuthorBySlug(slug: any): [any, boolean] {
   const [data, fetchData, loading] = useFetch<any>({});
 
   useEffect(() => {
@@ -93,14 +97,15 @@ export function useFetchAuthorBySlug(slug: string): [any, boolean] {
 }
 
 export function useFetchNewsAuthorBySlug(
-  slug: string,
-  limit: number,
+  slug: any,
+  page: number,
+  limit: number = 9,
 ): [any, boolean] {
   const [data, fetchData, loading] = useFetch<any>({});
 
   useEffect(() => {
-    fetchData(NewsApi.all, { authorSlug: slug, limit }, false);
-  }, [slug, limit]);
+    fetchData(NewsApi.all, { authorSlug: slug, page, limit }, false);
+  }, [slug, page]);
 
   return [data, loading];
 }
