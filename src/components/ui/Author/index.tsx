@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoNewspaperOutline } from "react-icons/io5";
 import {
   useFetchAuthorBySlug,
@@ -9,11 +9,14 @@ import AuthorNews from "../AuthorNews";
 import GoBack from "../GoBack";
 import ErrorMsg from "../ErrorMsg";
 import Spinner from "../Spinner";
+import Pagination from "../Pagination";
 
 const Author: React.FC = () => {
   const { slug } = useParams();
+  const [currentPage, setCurrentPage] = useState(1);
   const [autorSlugData, loading] = useFetchAuthorBySlug(slug);
-  const [authorAllNewsData] = useFetchNewsAuthorBySlug(slug, 8);
+  const [authorAllNewsData] = useFetchNewsAuthorBySlug(slug, currentPage, 9);
+  const totalPages = 2;
 
   if (loading) {
     return <Spinner />;
@@ -51,8 +54,15 @@ const Author: React.FC = () => {
           Number of news: {authorAllNewsData?.total}
         </span>
       </div>
-
       <AuthorNews authorAllNewsData={authorAllNewsData} />
+
+      <div className="py-4">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      </div>
     </>
   );
 };
