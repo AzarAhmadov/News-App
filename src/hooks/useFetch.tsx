@@ -109,3 +109,13 @@ export function useFetchNewsAuthorBySlug(
 
   return [data, loading];
 }
+
+export function useFetchNewsComment() {
+  const [commentData, fetchData, loading] = useFetch<any>({});
+
+  const FetchComment = (id: number | any) => {
+    fetchData(NewsApi.comments.replace(":id", id), {}, false);
+  };
+
+  return [commentData, FetchComment, loading];
+}
