@@ -10,6 +10,7 @@ export type TypeButton = {
   to?: string;
   onClick?: () => void;
   variant: string;
+  disabled?: boolean;
 };
 
 export type typeSlider = {

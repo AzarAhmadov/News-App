@@ -11,6 +11,7 @@ const Button: React.FC<TypeButton> = ({
   size,
   width,
   outline,
+  disabled,
   type = "button",
   to,
   onClick = () => {},
@@ -34,6 +35,7 @@ const Button: React.FC<TypeButton> = ({
           btn: true,
           "btn-rounded": rounded,
           "btn-outline": outline,
+          "btn-disabled": disabled,
         },
         [`btn-${variant}`, `btn-${size}`, `btn-${width}`],
       )}

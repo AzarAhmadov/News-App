@@ -31,7 +31,7 @@ const Comment: React.FC<CommentProps> = ({
   onSubmit,
   onDelete,
 }) => {
-  const { user } = useStoreAuth();
+  const { user, token } = useStoreAuth();
   const [show, setShow] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
 
@@ -85,27 +85,33 @@ const Comment: React.FC<CommentProps> = ({
 
   return (
     <div className="mx-auto w-full max-w-[55rem] pb-7">
-      <div className="text-center">
-        <h3 className="mb-3 text-lg font-medium">Add your comment</h3>
-        <div className="flex flex-col items-center gap-y-3">
-          <form onSubmit={handleSubmit} className="w-full">
-            <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="mb-3 h-[12rem] w-full resize-none rounded-lg p-3 outline-none dark:bg-gray-700 dark:text-white dark:placeholder:text-white"
-              placeholder="Enter your comment here.."
-            />
-            <Button
-              type="submit"
-              variant="primaryDark"
-              rounded={true}
-              size="sm"
-            >
-              Post Comment
-            </Button>
-          </form>
+      {token && (
+        <div className="text-center">
+          <h3 className="mb-3 text-lg font-medium">Add your comment</h3>
+          <div className="flex flex-col items-center gap-y-3">
+            <form onSubmit={handleSubmit} className="w-full">
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="mb-3 h-[12rem] w-full resize-none rounded-lg p-3 outline-none dark:bg-gray-700 dark:text-white dark:placeholder:text-white"
+                placeholder="Enter your comment here.."
+              />
+              <Button
+                disabled={!message}
+                type="submit"
+                variant="primaryDark"
+                rounded={true}
+                size="sm"
+              >
+                Post Comment
+              </Button>
+            </form>
+          </div>
         </div>
-      </div>
+      )}
+
+      {!token && <div className="text-center text-white bg-red-900 rounded-md py-7">You must first log in to add a comment.</div>}
+
       <div className="mt-5">
         <h3
           onClick={() => setShow(!show)}
