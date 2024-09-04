@@ -1,5 +1,5 @@
 .btn {
-  @apply px-5 py-2 text-sm font-normal whitespace-nowrap;
+  @apply whitespace-nowrap px-5 py-2 text-sm font-normal;
 }
 
 .btn-rounded {
@@ -7,7 +7,7 @@
 }
 
 .btn-outline {
-  @apply transition-all border border-black hover:bg-transparent hover:text-black dark:border-gray-400/30 dark:bg-white dark:text-white dark:hover:text-white;
+  @apply border border-black transition-all hover:bg-transparent hover:text-black dark:border-gray-400/30 dark:bg-white dark:text-white dark:hover:text-white;
 }
 
 .btn-full {
@@ -27,19 +27,19 @@
 }
 
 .btn-primary {
-  @apply text-white bg-primary;
+  @apply bg-primary text-white;
 }
 
 .btn-primaryDark {
-  @apply text-white bg-primaryDark dark:bg-gray-900;
+  @apply bg-primaryDark text-white dark:bg-gray-700 hover:dark:bg-slate-500;
 }
 
 .btn-primaryDarker {
-  @apply text-white bg-primaryDarker dark:bg-gray-900;
+  @apply bg-primaryDarker text-white dark:bg-gray-900 hover:dark:bg-slate-500;
 }
 
 .btn-black {
-  @apply text-white bg-slate-950 dark:bg-gray-800;
+  @apply bg-slate-950 text-white dark:bg-gray-800 hover:dark:bg-slate-500;
 }
 
 .btn-outline-transparent {
