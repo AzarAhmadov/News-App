@@ -8,10 +8,12 @@ import {
   TitleSkeleton,
 } from "../../../ui/Skeleton/SkeletonContent";
 import moment from "moment";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import './NewsBlockItem.css'
 
 const NewsBlockItem: React.FC<any> = ({ item, skeleton = false }) => {
   return (
-    <article className="p-5 transition-all bg-white border rounded-md shadow-sm dark:border-gray-300/10 hover:scale-105 dark:bg-gray-800">
+    <article className="p-5 transition-all bg-white border rounded-md shadow-sm hover:scale-105 dark:border-gray-300/10 dark:bg-gray-800">
       <div className="relative flex justify-between gap-x-4">
         <div className="w-full">
           <h3 className="text-lg font-medium leading-7 line-clamp-2 text-amberBlack dark:text-white">
@@ -26,9 +28,9 @@ const NewsBlockItem: React.FC<any> = ({ item, skeleton = false }) => {
             <ImageSkeleton />
           ) : (
             <figure className="aspect-[1/1] h-[132px] shrink-0 overflow-hidden rounded-[4px]">
-              <img
-                className="object-cover size-full"
+              <LazyLoadImage
                 src={item?.photo}
+                effect="blur"
                 alt={item?.author.fullname}
               />
             </figure>
