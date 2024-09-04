@@ -6,12 +6,36 @@ import { useFetchNewsBySlug, useFetchNewsComment } from "../../hooks/useFetch";
 import ErrorMsg from "../../components/ui/ErrorMsg";
 import GoBack from "../../components/ui/GoBack";
 import Comment from "../../components/ui/Comment";
+import { API } from "../../utils/api";
+import NewsApi from "../../api/news.api";
+import { notification } from "../../helper/helper";
 
 const NewsDetail: React.FC = () => {
   const { slug } = useParams();
 
   const [data, loading] = useFetchNewsBySlug(slug);
   const [commentData, FetchComment] = useFetchNewsComment();
+
+  const addComment = async (body: any) => {
+    const res = await API.post(NewsApi.commentPost.replace(":id", data.id), {
+      body,
+    });
+
+    if (res) {
+      notification("success", "Your comment has been added");
+      FetchComment(data.id);
+    }
+  };
+
+  const handleDelete = async (commentId: any) => {
+    const res = await API.delete(
+      NewsApi.commentDestroy.replace(":newsId", data.id).replace(":commentId", commentId),
+    );
+    if (res) {
+      notification("success", "Your message has been successfully deleted");
+      FetchComment(data.id);
+    }
+  };
 
   useEffect(() => {
     if (data.id) {
@@ -34,7 +58,7 @@ const NewsDetail: React.FC = () => {
 
         <h3 className="text-2xl text-black dark:text-white">{data?.title}</h3>
         <Link
-          className="inline-flex px-4 py-1 mt-3 rounded-md bg-activeLink text-primaryDark dark:bg-gray-700 dark:text-white"
+          className="mt-3 inline-flex rounded-md bg-activeLink px-4 py-1 text-primaryDark dark:bg-gray-700 dark:text-white"
           to={`/search?category=${data?.category?.slug}`}
         >
           {data?.category?.name}
@@ -43,7 +67,7 @@ const NewsDetail: React.FC = () => {
 
       <figure className="aspect-[16/8] overflow-hidden rounded-md">
         <img
-          className="object-cover object-center size-full"
+          className="size-full object-cover object-center"
           src={data?.photo}
           alt={data?.author?.fullname}
         />
@@ -54,7 +78,7 @@ const NewsDetail: React.FC = () => {
         dangerouslySetInnerHTML={{ __html: data?.content }}
       ></div>
 
-      <div className="pb-5 mb-5 text-center border-b border-gray-200 mt-7 dark:border-gray-700">
+      <div className="mb-5 mt-7 border-b border-gray-200 pb-5 text-center dark:border-gray-700">
         <h3 className="mb-2 text-paragraphColor">
           {moment(data?.published_date, "YYYYMMDD").fromNow()}
         </h3>
@@ -63,7 +87,11 @@ const NewsDetail: React.FC = () => {
         </Link>
       </div>
 
-      <Comment items={commentData} />
+      <Comment
+        onSubmit={(data) => addComment(data)}
+        items={commentData}
+        onDelete={(id) => handleDelete(id)}
+      />
     </>
   );
 };
