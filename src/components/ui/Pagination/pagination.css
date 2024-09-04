@@ -1,9 +1,12 @@
 @import "react-responsive-pagination/themes/classic.css";
 
+.page-item {
+  @apply flex;
+}
 .page-item .page-link {
   @apply text-black bg-transparent dark:text-white;
 }
 
 .page-item.active .page-link {
-  @apply bg-black dark:bg-white dark:text-black border-none
+  @apply bg-black border-none dark:bg-white dark:text-black;
 }
