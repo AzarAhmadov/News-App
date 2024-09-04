@@ -1,0 +1,7 @@
+.lazy-load-image-background {
+  @apply h-full;
+}
+
+.lazy-load-image-background img {
+  @apply object-cover size-full;
+}
