@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import moment from "moment";
 import Spinner from "../../components/ui/Spinner";
-import { useFetchNewsBySlug } from "../../hooks/useFetch";
+import { useFetchNewsBySlug, useFetchNewsComment } from "../../hooks/useFetch";
 import ErrorMsg from "../../components/ui/ErrorMsg";
 import GoBack from "../../components/ui/GoBack";
 import Comment from "../../components/ui/Comment";
@@ -11,6 +11,13 @@ const NewsDetail: React.FC = () => {
   const { slug } = useParams();
 
   const [data, loading] = useFetchNewsBySlug(slug);
+  const [commentData, FetchComment] = useFetchNewsComment();
+
+  useEffect(() => {
+    if (data.id) {
+      FetchComment(data.id);
+    }
+  }, [data?.id]);
 
   if (loading) {
     return <Spinner />;
@@ -27,7 +34,7 @@ const NewsDetail: React.FC = () => {
 
         <h3 className="text-2xl text-black dark:text-white">{data?.title}</h3>
         <Link
-          className="inline-flex px-4 py-1 mt-3 rounded-md dark:bg-gray-700 dark:text-white bg-activeLink text-primaryDark"
+          className="inline-flex px-4 py-1 mt-3 rounded-md bg-activeLink text-primaryDark dark:bg-gray-700 dark:text-white"
           to={`/search?category=${data?.category?.slug}`}
         >
           {data?.category?.name}
@@ -38,7 +45,7 @@ const NewsDetail: React.FC = () => {
         <img
           className="object-cover object-center size-full"
           src={data?.photo}
-          alt=""
+          alt={data?.author?.fullname}
         />
       </figure>
 
@@ -47,13 +54,16 @@ const NewsDetail: React.FC = () => {
         dangerouslySetInnerHTML={{ __html: data?.content }}
       ></div>
 
-      <div className="pb-5 mb-5 text-center border-b border-gray-200 dark:border-gray-700 mt-7">
+      <div className="pb-5 mb-5 text-center border-b border-gray-200 mt-7 dark:border-gray-700">
         <h3 className="mb-2 text-paragraphColor">
           {moment(data?.published_date, "YYYYMMDD").fromNow()}
         </h3>
-        <Link to={""}>by {data?.author?.fullname}</Link>
+        <Link to={`/author/${data?.author?.slug}`}>
+          by {data?.author?.fullname}
+        </Link>
       </div>
-      <Comment />
+
+      <Comment items={commentData} />
     </>
   );
 };
