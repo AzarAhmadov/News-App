@@ -7,6 +7,7 @@ import { useStoreAuth } from "../../../store/features/auth.slice";
 import { CiLogout } from "react-icons/ci";
 import Dropdown from "../../ui/Dropdown";
 import Theme from "../../ui/Theme";
+import Language from "../../ui/Language";
 
 const Header: React.FC = () => {
   const { token, user } = useStoreAuth();
@@ -73,6 +74,7 @@ const Header: React.FC = () => {
         </button>
       )}
 
+      <Language />
       <Theme />
     </header>
   );
