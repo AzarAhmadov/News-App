@@ -37,7 +37,7 @@ const Comment: React.FC<CommentProps> = ({
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    if (message.trim()) {
+    if (message) {
       onSubmit(message);
       setMessage("");
     }
@@ -97,7 +97,7 @@ const Comment: React.FC<CommentProps> = ({
                 placeholder="Enter your comment here.."
               />
               <Button
-                disabled={!message}
+                disabled={!message.trim()}
                 type="submit"
                 variant="primaryDark"
                 rounded={true}
@@ -110,7 +110,11 @@ const Comment: React.FC<CommentProps> = ({
         </div>
       )}
 
-      {!token && <div className="text-center text-white bg-red-900 rounded-md py-7">You must first log in to add a comment.</div>}
+      {!token && (
+        <div className="text-center text-white bg-red-900 rounded-md py-7">
+          You must first log in to add a comment.
+        </div>
+      )}
 
       <div className="mt-5">
         <h3
