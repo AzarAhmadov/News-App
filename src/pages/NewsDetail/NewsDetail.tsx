@@ -60,7 +60,7 @@ const NewsDetail: React.FC = () => {
 
         <h3 className="text-2xl text-black dark:text-white">{data?.title}</h3>
         <Link
-          className="inline-flex px-4 py-1 mt-3 rounded-md bg-activeLink text-primaryDark dark:bg-gray-700 dark:text-white"
+          className="mt-3 inline-flex rounded-md bg-activeLink px-4 py-1 text-primaryDark dark:bg-gray-700 dark:text-white"
           to={`/search?category=${data?.category?.slug}`}
         >
           {data?.category?.name}
@@ -69,7 +69,7 @@ const NewsDetail: React.FC = () => {
 
       <figure className="aspect-[16/8] overflow-hidden rounded-md">
         <img
-          className="object-cover object-center size-full"
+          className="size-full object-cover object-center"
           src={data?.photo}
           alt={data?.author?.fullname}
         />
@@ -80,7 +80,7 @@ const NewsDetail: React.FC = () => {
         dangerouslySetInnerHTML={{ __html: data?.content }}
       ></div>
 
-      <div className="pb-5 mb-5 text-center border-b border-gray-200 mt-7 dark:border-gray-700">
+      <div className="mb-5 mt-7 border-b border-gray-200 pb-5 text-center dark:border-gray-700">
         <h3 className="mb-2 text-paragraphColor">
           {moment(data?.published_date, "YYYYMMDD").fromNow()}
         </h3>
