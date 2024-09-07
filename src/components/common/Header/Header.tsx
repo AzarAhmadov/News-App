@@ -5,9 +5,9 @@ import { MdLogin } from "react-icons/md";
 import { serviceSetToggleStatus } from "../../../services/app.service";
 import { useStoreAuth } from "../../../store/features/auth.slice";
 import { CiLogout } from "react-icons/ci";
+import Theme from "../Theme";
+import Language from "../Language";
 import Dropdown from "../../ui/Dropdown";
-import Theme from "../../ui/Theme";
-import Language from "../../ui/Language";
 
 const Header: React.FC = () => {
   const { token, user } = useStoreAuth();
@@ -33,7 +33,9 @@ const Header: React.FC = () => {
       >
         <p className="flex gap-x-2">
           Latest news
-          <span className="font-medium text-primaryDark">Around the World</span>
+          <span className="fontß-medium text-primaryDark">
+            Around the World
+          </span>
         </p>
         <IoIosArrowForward className="text-[20px]" />
       </Link>
