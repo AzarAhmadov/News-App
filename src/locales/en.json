@@ -1,0 +1,42 @@
+{
+  "auth": {
+    "logout": "Logout"
+  },
+  "news": {
+    "share": "share"
+  },
+  "loadMore": {
+    "text": "Load more"
+  },
+  "form": {
+    "input": "Search for news.."
+  },
+  "header": {
+    "text": "Latest newsAround the World"
+  },
+  "authors": {
+    "detail": "Detail"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "search": "Search"
+  },
+  "info": {
+    "title-1": "Around the World",
+    "title-2": "Creators you should follow",
+    "title-3": "Popular news"
+  },
+  "comment": {
+    "all": "View All Comments",
+    "post": "Post Comment",
+    "add": "Add your comment",
+    "input": "Enter your comment here"
+  },
+  "subscribe": {
+    "title": "Subscribe to Premium",
+    "button": "Upgrate"
+  },
+  "footer": {
+    "text": "Created by"
+  }
+}
