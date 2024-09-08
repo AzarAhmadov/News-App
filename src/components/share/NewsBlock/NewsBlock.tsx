@@ -4,6 +4,7 @@ import { typeNewsBlock } from "../../../types/types";
 import { useFetchAllNews } from "../../../hooks/useFetch";
 import LoadMore from "../../ui/LoadMore";
 import SkeletonArea from "../../ui/Skeleton/SkeletonArea";
+import { language, translate } from "../../../helper/helper";
 
 const NewsBlock: React.FC<typeNewsBlock> = ({ title, icon }) => {
   const [page, setPage] = useState(1);
@@ -27,7 +28,7 @@ const NewsBlock: React.FC<typeNewsBlock> = ({ title, icon }) => {
 
   return (
     <>
-      <div className="mt-6 flex items-center gap-x-2">
+      <div className="flex items-center mt-6 gap-x-2">
         {icon}
         <h2 className="text-lg font-medium"> {title} </h2>
       </div>
