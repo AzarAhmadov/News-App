@@ -1,0 +1,42 @@
+{
+  "auth": {
+    "logout": "Çıxış et"
+  },
+  "news": {
+    "share": "paylaş"
+  },
+  "loadMore": {
+    "text": "Daha çox"
+  },
+  "form": {
+    "input": "Xəbər axtar.."
+  },
+  "breadcrumb": {
+    "home": "Ana səhifə",
+    "search": "Axtarış"
+  },
+  "info": {
+    "title-1": "Dünya ətrafında",
+    "title-2": "İzləməli olduğunuz yaradıcılar",
+    "title-3": "Populyar xəbərlər"
+  },
+  "header": {
+    "text": "Ən son xəbərlər Dünya ətrafında"
+  },
+  "authors": {
+    "detail": "Haqqında"
+  },
+  "comment": {
+    "all": "Bütün Şərhlərə Baxın",
+    "post": "Paylaş",
+    "add": "Şərhinizi əlavə edin",
+    "input": "Şərhinizi bura daxil edin"
+  },
+  "subscribe": {
+    "title": "Premiuma abunə olun",
+    "button": "Yenilə"
+  },
+  "footer": {
+    "text": "Tərəfindən yaradılmışdır"
+  }
+}
