@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Button from "../../../ui/Button";
 import { serviceAuthLogin } from "../../../../services/auth.service";
-import { useStoreApp } from "../../../../store/features/app.slice";
 import classNames from "classnames";
 import { serviceSetToggleStatus } from "../../../../services/app.service";
+import { useStoreApp } from "../../../../store/features/app.slice";
 
 const Login: React.FC = () => {
   const [inputs, setInputs] = useState({
@@ -46,7 +46,7 @@ const Login: React.FC = () => {
       )}
     >
       <div className="w-full max-w-[450px] rounded-md border border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-900">
-        <div className="flex items-center justify-between border-b p-5 dark:border-gray-600">
+        <div className="flex items-center justify-between p-5 border-b dark:border-gray-600">
           <h4 className="text-xl">Login</h4>
           <IoMdClose
             onClick={serviceSetToggleStatus}
@@ -55,7 +55,7 @@ const Login: React.FC = () => {
         </div>
         <div className="py-7 pe-5 ps-5">
           <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
-            <div className="mb-2 flex flex-col">
+            <div className="flex flex-col mb-2">
               <label htmlFor="email">
                 Email <span className="text-red-500">*</span>
               </label>
