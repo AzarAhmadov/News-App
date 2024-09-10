@@ -1,5 +1,10 @@
 import { store } from "../store/app.store";
-import { setDarkMode, setErrors, setToggle } from "../store/features/app.slice";
+import {
+  setDarkMode,
+  setErrors,
+  setToggle,
+  setLanguage,
+} from "../store/features/app.slice";
 import { setToken, setUser } from "../store/features/auth.slice";
 
 export const serviceSetToggleStatus = () => {
@@ -21,4 +26,8 @@ export const serviceSetErrors = (value: string) => {
 
 export const serviceSetDarkmode = (value: any) => {
   store.dispatch(setDarkMode(value));
+};
+
+export const serviceSetLanguage = (value: any) => {
+  store.dispatch(setLanguage(value));
 };
