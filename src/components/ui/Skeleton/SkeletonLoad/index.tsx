@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import classNames from "classnames";
 import "./skeletonLoad.css";
 
@@ -12,9 +12,9 @@ const SkeletonLoad: React.FC<SkeletonLoadProps> = ({ className }) => {
       role="status"
       className={classNames("relative overflow-hidden", className)}
     >
-      <div className="w-full h-full skeleton-bg"></div>
+      <div className="skeleton-bg h-full w-full"></div>
     </div>
   );
 };
 
-export default SkeletonLoad;
+export default memo(SkeletonLoad);
