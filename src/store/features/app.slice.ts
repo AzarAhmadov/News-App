@@ -6,6 +6,7 @@ interface IinitialState {
   toggle: boolean;
   darkMode: any;
   errors: any;
+  language: string;
 }
 
 const initialState: IinitialState = {
@@ -13,7 +14,8 @@ const initialState: IinitialState = {
   errors: {},
   darkMode: localStorage.getItem("darkMode")
     ? localStorage.getItem("darkMode") === "true"
-    : window.matchMedia("(prefers-color-scheme: dark)").matches,
+    : null,
+  language: localStorage.getItem("language") || "az",
 };
 
 export const AppSlice = createSlice({
@@ -30,12 +32,15 @@ export const AppSlice = createSlice({
       state.darkMode = action.payload;
       localStorage.setItem("darkMode", state.darkMode);
     },
+    setLanguage: (state, action) => {
+      state.language = action.payload;
+      localStorage.setItem("language", state.language);
+    },
   },
 });
 
-export const { setToggle, setErrors, setDarkMode } = AppSlice.actions;
+export const { setToggle, setErrors, setDarkMode, setLanguage } = AppSlice.actions;
 
-export const useStoreApp = () =>
-  useSelector((state: RootState) => state.AppStore);
+export const useStoreApp = () => useSelector((state: RootState) => state.AppStore);
 
 export default AppSlice.reducer;
