@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import AsideLink from "../../../common/Aside/AsideLink";
 import NewsBlockItem from "../../../share/NewsBlock/NewsBlockItem/NewsBlockItem";
 
@@ -24,4 +24,4 @@ const SkeletonArea: React.FC<any> = ({
   );
 };
 
-export default SkeletonArea;
+export default memo(SkeletonArea);
