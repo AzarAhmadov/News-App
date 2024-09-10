@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Button from "../Button";
 import { TypeLoadMore } from "../../../types/types";
 
@@ -19,4 +19,4 @@ const LoadMore: React.FC<TypeLoadMore> = ({ handlePage }) => {
   );
 };
 
-export default LoadMore;
+export default memo(LoadMore);
