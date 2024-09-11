@@ -19,22 +19,20 @@ export const translate = (name: string) => {
 
   const { language } = store.getState().AppStore;
 
-  const current_langauge = language;
-
   const langauges = {
     az: langAz,
     en: langEn,
   };
 
-  let result = langauges[current_langauge];
+  let current_langauge = langauges[language];
 
   for (let k of key) {
-    if (result[k] !== undefined) {
-      result = result[k];
+    if (current_langauge[k]) {
+      current_langauge = current_langauge[k];
     } else {
-      result = name;
+      current_langauge = name;
     }
   }
 
-  return result;
+  return current_langauge;
 };
