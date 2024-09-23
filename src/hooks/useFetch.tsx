@@ -43,7 +43,7 @@ export function useFetchCategories(): [string[], boolean] {
 }
 
 export function useFetchAllNews(page: number, limit: number): [any[], boolean] {
-  const [data, fetchData, loading] = useFetch<any[]>([]);
+  const [data, fetchData, loading] = useFetch([]);
 
   useEffect(() => {
     fetchData(NewsApi.all, { page, limit }, true);
@@ -52,8 +52,8 @@ export function useFetchAllNews(page: number, limit: number): [any[], boolean] {
   return [data, loading];
 }
 
-export function useFetchNewsBySlug(slug: any): [any, boolean] {
-  const [data, fetchData, loading] = useFetch<any>({});
+export function useFetchNewsBySlug(slug: string): [any, boolean] {
+  const [data, fetchData, loading] = useFetch({});
 
   useEffect(() => {
     fetchData(NewsApi.bySlug.replace(":slug", slug), {}, false);
@@ -63,11 +63,11 @@ export function useFetchNewsBySlug(slug: any): [any, boolean] {
 }
 
 export function useFetchNewsByCategory(
-  category: any,
+  category: string,
   page = 1,
   limit = 9,
 ): [any[], boolean] {
-  const [data, fetchData, loading] = useFetch<any[]>([]);
+  const [data, fetchData, loading] = useFetch([]);
 
   useEffect(() => {
     fetchData(NewsApi.all, { category, page, limit }, true);
@@ -77,7 +77,7 @@ export function useFetchNewsByCategory(
 }
 
 export function useFetchAuthors(): [any[], boolean] {
-  const [data, fetchData, loading] = useFetch<any[]>([]);
+  const [data, fetchData, loading] = useFetch([]);
 
   useEffect(() => {
     fetchData(AuthorApi.all, {}, false);
@@ -87,7 +87,7 @@ export function useFetchAuthors(): [any[], boolean] {
 }
 
 export function useFetchAuthorBySlug(slug: any): [any, boolean] {
-  const [data, fetchData, loading] = useFetch<any>({});
+  const [data, fetchData, loading] = useFetch({});
 
   useEffect(() => {
     fetchData(AuthorApi.bySlug.replace(":slug", slug), {}, false);
@@ -101,7 +101,7 @@ export function useFetchNewsAuthorBySlug(
   page: number,
   limit: number = 9,
 ): [any, boolean] {
-  const [data, fetchData, loading] = useFetch<any>({});
+  const [data, fetchData, loading] = useFetch({});
 
   useEffect(() => {
     fetchData(NewsApi.all, { authorSlug: slug, page, limit }, false);
