@@ -1,25 +1,32 @@
 import React from "react";
 import Dropdown from "../../ui/Dropdown";
+import { useStoreApp } from "../../../store/features/app.slice";
+import { serviceSetLanguage } from "../../../services/app.service";
 
 const Language: React.FC = () => {
+  
+  const { language, languages } = useStoreApp();
+
   return (
     <Dropdown
       DropdownHeader={
         <div className="flex items-center py-3 cursor-pointer gap-x-2 whitespace-nowrap">
-          <img
-            className="h-[25px] min-w-[45px] rounded-sm object-cover"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/800px-Flag_of_Azerbaijan.svg.png"
-            alt="Azerbaijan"
-          />
+          {language.toUpperCase()}
         </div>
       }
     >
       <div className="absolute -bottom-[3rem] left-0 flex w-max cursor-pointer justify-center rounded-md border px-2 py-2 text-center text-white dark:border-gray-600">
-        <img
-          className="h-[25px] w-[45px] rounded-sm object-cover"
-          src="https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg"
-          alt="America"
-        />
+        {languages
+          .filter((i) => i !== language)
+          .map((lang, index) => (
+            <button
+              onClick={() => serviceSetLanguage(lang)}
+              key={index}
+              className="px-3 text-black"
+            >
+              {lang.toUpperCase()}
+            </button>
+          ))}
       </div>
     </Dropdown>
   );

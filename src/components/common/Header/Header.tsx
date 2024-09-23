@@ -8,6 +8,7 @@ import { CiLogout } from "react-icons/ci";
 import Theme from "../Theme";
 import Language from "../Language";
 import Dropdown from "../../ui/Dropdown";
+import { translate } from "../../../helper/helper";
 
 const Header: React.FC = () => {
   const { token, user } = useStoreAuth();
@@ -23,7 +24,7 @@ const Header: React.FC = () => {
         <input
           className="w-full bg-transparent outline-none"
           type="text"
-          placeholder="Search for news.."
+          placeholder={translate("form.input")}
         />
         <IoIosSearch className="text-[25px]" />
       </form>
@@ -31,12 +32,7 @@ const Header: React.FC = () => {
         className="flex items-center px-6 py-3 transition-all border border-gray-300 rounded-md gap-x-4 whitespace-nowrap hover:bg-gray-200 dark:border-gray-600 dark:hover:bg-gray-700"
         to={"/"}
       >
-        <p className="flex gap-x-2">
-          Latest news
-          <span className="fontß-medium text-primaryDark">
-            Around the World
-          </span>
-        </p>
+        <p className="flex gap-x-2">{translate("header.text")}</p>
         <IoIosArrowForward className="text-[20px]" />
       </Link>
       {token ? (
@@ -62,16 +58,16 @@ const Header: React.FC = () => {
               onClick={Lagout}
               className="mx-auto flex items-center justify-center gap-x-3 font-[500] text-white"
             >
-              <CiLogout className="text-xl" /> Logout
+              <CiLogout className="text-xl" /> {translate("auth.logout")}
             </button>
           </div>
         </Dropdown>
       ) : (
         <button
-          className="flex items-center px-10 py-3 text-white rounded-md gap-x-2 bg-primaryDarker"
+          className="flex items-center px-10 py-3 text-white rounded-md gap-x-2 whitespace-nowrap bg-primaryDarker"
           onClick={serviceSetToggleStatus}
         >
-          Login
+          {translate("auth.login")}
           <MdLogin className="text-xl" />
         </button>
       )}

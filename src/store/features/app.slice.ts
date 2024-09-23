@@ -7,6 +7,7 @@ interface IinitialState {
   darkMode: any;
   errors: any;
   language: string;
+  languages: string[];
 }
 
 const initialState: IinitialState = {
@@ -15,6 +16,7 @@ const initialState: IinitialState = {
   darkMode: localStorage.getItem("darkMode")
     ? localStorage.getItem("darkMode") === "true"
     : null,
+  languages: ["az", "en"],
   language: localStorage.getItem("language") || "az",
 };
 
@@ -39,8 +41,10 @@ export const AppSlice = createSlice({
   },
 });
 
-export const { setToggle, setErrors, setDarkMode, setLanguage } = AppSlice.actions;
+export const { setToggle, setErrors, setDarkMode, setLanguage } =
+  AppSlice.actions;
 
-export const useStoreApp = () => useSelector((state: RootState) => state.AppStore);
+export const useStoreApp = () =>
+  useSelector((state: RootState) => state.AppStore);
 
 export default AppSlice.reducer;

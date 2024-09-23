@@ -1,6 +1,7 @@
 {
   "auth": {
-    "logout": "Logout"
+    "logout": "Logout",
+      "login": "Login"
   },
   "news": {
     "share": "share"
@@ -12,7 +13,7 @@
     "input": "Search for news.."
   },
   "header": {
-    "text": "Latest newsAround the World"
+    "text": "Latest news Around the World"
   },
   "authors": {
     "detail": "Detail"

@@ -1,6 +1,7 @@
 {
   "auth": {
-    "logout": "Çıxış et"
+    "logout": "Çıxış et",
+    "login": "Daxil ol"
   },
   "news": {
     "share": "paylaş"

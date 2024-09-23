@@ -30,4 +30,5 @@ export const serviceSetDarkmode = (value: any) => {
 
 export const serviceSetLanguage = (value: any) => {
   store.dispatch(setLanguage(value));
+  window.location.reload();
 };

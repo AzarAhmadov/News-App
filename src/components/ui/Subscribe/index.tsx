@@ -1,6 +1,7 @@
 import React from "react";
 import { CiGift } from "react-icons/ci";
 import Button from "../Button";
+import { translate } from "../../../helper/helper";
 
 const Subscribe: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ const Subscribe: React.FC = () => {
       <div className="flex items-center gap-x-3">
         <CiGift className="shrink-0 text-[28px] text-textWhite" />
         <h3 className="text-sm font-normal text-textWhite">
-          Subscribe to Premium
+          {translate("subscribe.title")}
         </h3>
       </div>
       <div className="flex items-center justify-between mt-3">
@@ -16,7 +17,7 @@ const Subscribe: React.FC = () => {
           $8<small className="text-[1rem] font-normal">/m</small>
         </div>
         <Button type="button" variant="primaryDarker" size="sm" rounded={true}>
-          Upgrate
+          {translate("subscribe.button")}
         </Button>
       </div>
     </div>
