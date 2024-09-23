@@ -1,26 +1,37 @@
-import React, { useState } from "react";
+import { FormEvent, useState } from "react";
 
-const useForm: React.FC<any> = ({ initialValue = {}, onSubmit } = {}) => {
-  const [form, setForm] = useState(initialValue);
+interface FormValues {
+  [key: string]: any;
+}
 
-  const handleInput = (e: any) => {
-    const { name, value } = e.target;
+interface IFormProps {
+  initialState: FormValues;
+  onSubmit: (values: FormValues) => Promise<void> | void;
+}
 
-    setForm((values: any) => ({ ...values, [name]: value }));
+const useForm = ({ initialState = {}, onSubmit }: IFormProps) => {
+  const [values, setValues] = useState<FormValues>(initialState);
+
+  const setField = (name: string, value: string) => {
+    setValues((oldVal) => ({
+      ...oldVal,
+      [name]: value,
+    }));
   };
 
-  const resetData = () => setForm(initialValue);
+  const resetValues = () => {
+    setValues(initialState);
+  };
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    if (onSubmit) await onSubmit(form);
+  const handleSubmit = async (e: FormEvent) => {
+    e?.preventDefault();
+    if (onSubmit) await onSubmit(values);
   };
 
   return {
-    form,
-    setForm,
-    handleInput,
-    resetData,
+    values,
+    setField,
+    resetValues,
     handleSubmit,
   };
 };
