@@ -10,7 +10,7 @@ const Language: React.FC = () => {
   return (
     <Dropdown
       DropdownHeader={
-        <div className="flex items-center py-3 cursor-pointer gap-x-2 whitespace-nowrap">
+        <div className="flex items-center py-2 cursor-pointer md:py-3 gap-x-2 whitespace-nowrap">
           {language.toUpperCase()}
         </div>
       }
