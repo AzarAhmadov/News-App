@@ -5,10 +5,10 @@ import classNames from "classnames";
 import { serviceSetToggleStatus } from "../../../../services/app.service";
 import { useStoreApp } from "../../../../store/features/app.slice";
 import useForm from "../../../../hooks/useForm";
-import { serviceAuthLogin } from "../../../../services/auth.service";
 import FormGroup from "../../../ui/Form/FormGroup";
 import FormInput from "../../../ui/Form/FormInput";
 import { translate } from "../../../../helper/helper";
+import serviceAuthLogin from "../../../../services/auth.service";
 
 const Login: React.FC = () => {
   const { values, setField, handleSubmit } = useForm({

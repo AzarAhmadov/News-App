@@ -14,25 +14,37 @@ export const notification = (
   toast[type](message);
 };
 
-export const translate = (name: string) => {
+type LanguageKeys = {
+  [key: string]: string | LanguageKeys;
+};
+
+export const translate = (name: string): string => {
   const key = name.split(".");
 
   const { language } = store.getState().AppStore;
 
-  const langauges = {
+  const languages: { [key: string]: LanguageKeys } = {
     az: langAz,
     en: langEn,
   };
 
-  let current_langauge = langauges[language];
+  let current_language: LanguageKeys = languages[language];
 
   for (let k of key) {
-    if (current_langauge[k]) {
-      current_langauge = current_langauge[k];
+    if (
+      current_language &&
+      typeof current_language === "object" &&
+      k in current_language
+    ) {
+      current_language = current_language[k] as LanguageKeys;
     } else {
-      current_langauge = name;
+      return name;
     }
   }
 
-  return current_langauge;
+  if (typeof current_language === "string") {
+    return current_language;
+  }
+
+  return name;
 };

@@ -15,7 +15,7 @@ export const serviceSetToken = (value: string) => {
   store.dispatch(setToken(value));
 };
 
-export const serviceSetUser = (value: string) => {
+export const serviceSetUser = (value: any) => {
   store.dispatch(setUser(value));
   window.location.reload();
 };

@@ -9,9 +9,9 @@ import { FaBars } from "react-icons/fa6";
 import Theme from "../Theme";
 import Language from "../Language";
 import Dropdown from "../../ui/Dropdown";
-import { translate } from "../../../helper/helper";
 import useWidth from "../../../hooks/useWidth";
 import Aside from "../Aside/Aside";
+import { translate } from "../../../helper/helper";
 
 const Header: React.FC = () => {
   const { token, user } = useStoreAuth();

@@ -52,7 +52,7 @@ export function useFetchAllNews(page: number, limit: number): [any[], boolean] {
   return [data, loading];
 }
 
-export function useFetchNewsBySlug(slug: string): [any, boolean] {
+export function useFetchNewsBySlug(slug: any): [any, boolean] {
   const [data, fetchData, loading] = useFetch({});
 
   useEffect(() => {
@@ -63,7 +63,7 @@ export function useFetchNewsBySlug(slug: string): [any, boolean] {
 }
 
 export function useFetchNewsByCategory(
-  category: string,
+  category: any,
   page = 1,
   limit = 9,
 ): [any[], boolean] {

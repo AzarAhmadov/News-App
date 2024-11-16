@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../app.store";
 
 interface IUser {
+  id: number;
   photo: string;
   name: string;
   surname: string;

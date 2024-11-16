@@ -53,13 +53,13 @@ const Comment: React.FC<CommentProps> = ({
               <div className="flex items-center gap-x-3">
                 <figure className="size-[3rem] overflow-hidden">
                   <img
-                    className="object-cover rounded-full size-full"
+                    className="size-full rounded-full object-cover"
                     src={item.user.photo}
                     alt={item.user.name}
                   />
                 </figure>
                 <h4 className="text-lg text-primary">
-                  {item.user.name}{" "}
+                  {item.user.name}
                   <span className="ms-1">{item.user.surname}</span>
                 </h4>
               </div>
@@ -67,7 +67,7 @@ const Comment: React.FC<CommentProps> = ({
             {user?.id === item.user.id && (
               <div
                 onClick={() => onDelete(item.id)}
-                className="p-2 text-xl text-white bg-red-600 rounded-md cursor-pointer"
+                className="cursor-pointer rounded-md bg-red-600 p-2 text-xl text-white"
               >
                 <AiOutlineDelete />
               </div>
@@ -114,7 +114,7 @@ const Comment: React.FC<CommentProps> = ({
       )}
 
       {!token && (
-        <div className="text-center text-white bg-red-900 rounded-md py-7">
+        <div className="rounded-md bg-red-900 py-7 text-center text-white">
           {translate("comment.login")}
         </div>
       )}
@@ -122,7 +122,7 @@ const Comment: React.FC<CommentProps> = ({
       <div className="mt-5">
         <h3
           onClick={() => setShow(!show)}
-          className="flex items-center mb-10 cursor-pointer gap-x-3"
+          className="mb-10 flex cursor-pointer items-center gap-x-3"
         >
           {translate("comment.all")} ({items.length})
           <div className="grid size-[1.7rem] place-items-center rounded-full bg-primaryDarker text-white">
