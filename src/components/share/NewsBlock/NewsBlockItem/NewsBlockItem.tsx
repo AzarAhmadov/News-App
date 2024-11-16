@@ -15,10 +15,10 @@ const NewsBlockItem: React.FC<any> = ({ item, skeleton = false }) => {
     <article className="p-5 transition-all bg-white border rounded-md shadow-sm hover:scale-105 dark:border-gray-300/10 dark:bg-gray-800">
       <div className="relative flex justify-between gap-x-4">
         <div className="w-full">
-          <h3 className="text-lg font-medium leading-7 line-clamp-2 text-amberBlack dark:text-white">
+          <h3 className="text-sm font-medium leading-5 md:leading-7 line-clamp-2 md:text-lg text-amberBlack dark:text-white">
             {skeleton ? <TitleSkeleton /> : item?.title}
           </h3>
-          <div className="mt-2 text-sm font-normal leading-6 line-clamp-3 text-paragraphColor dark:text-white/50">
+          <div className="mt-2 text-[12px] md:text-sm font-normal leading-5 md:leading-6 line-clamp-3 text-paragraphColor dark:text-white/50">
             {skeleton ? <DescriptionSkeleton /> : item?.description}
           </div>
         </div>
@@ -26,7 +26,7 @@ const NewsBlockItem: React.FC<any> = ({ item, skeleton = false }) => {
           {skeleton ? (
             <ImageSkeleton />
           ) : (
-            <figure className="aspect-[1/1] h-[132px] shrink-0 overflow-hidden rounded-[4px]">
+            <figure className="aspect-[1/1] h-[110px] md:h-[132px] shrink-0 overflow-hidden rounded-[4px]">
               <LazyLoadImage
                 src={item?.photo}
                 effect="blur"
