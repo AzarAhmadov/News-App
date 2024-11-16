@@ -1,7 +1,7 @@
 {
   "auth": {
     "logout": "Logout",
-      "login": "Login"
+    "login": "Login"
   },
   "news": {
     "share": "share"
@@ -28,8 +28,10 @@
     "title-3": "Popular news"
   },
   "comment": {
+    "login": "You must first log in to add a comment",
     "all": "View All Comments",
     "post": "Post Comment",
+    "noComment": "No comments to display",
     "add": "Add your comment",
     "input": "Enter your comment here"
   },

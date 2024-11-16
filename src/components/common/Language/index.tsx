@@ -22,7 +22,7 @@ const Language: React.FC = () => {
             <button
               onClick={() => serviceSetLanguage(lang)}
               key={index}
-              className="px-3 text-black"
+              className="px-3 text-black dark:text-white"
             >
               {lang.toUpperCase()}
             </button>

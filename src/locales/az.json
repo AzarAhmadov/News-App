@@ -28,8 +28,10 @@
     "detail": "Haqqında"
   },
   "comment": {
+    "login": "Şərh əlavə etmək üçün əvvəlcə daxil olmalısınız",
     "all": "Bütün Şərhlərə Baxın",
     "post": "Paylaş",
+    "noComment": "Göstəriləcək şərh yoxdur",
     "add": "Şərhinizi əlavə edin",
     "input": "Şərhinizi bura daxil edin"
   },

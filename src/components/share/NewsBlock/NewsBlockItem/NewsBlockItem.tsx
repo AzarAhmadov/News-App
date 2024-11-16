@@ -1,5 +1,4 @@
 import React from "react";
-import { AiOutlineShareAlt } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import {
   DescriptionSkeleton,
@@ -9,7 +8,7 @@ import {
 } from "../../../ui/Skeleton/SkeletonContent";
 import moment from "moment";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import './NewsBlockItem.css'
+import "./NewsBlockItem.css";
 
 const NewsBlockItem: React.FC<any> = ({ item, skeleton = false }) => {
   return (
@@ -42,19 +41,11 @@ const NewsBlockItem: React.FC<any> = ({ item, skeleton = false }) => {
         {skeleton ? (
           <InfoSkeleton />
         ) : (
-          <>
-            <li className="flex items-center gap-x-2 text-[0.813rem] text-infoText">
-              <span>{item?.author?.agency}</span>
-              <span>●</span>
-              <span>{moment(item?.published_date, "YYYYMMDD").fromNow()}</span>
-            </li>
-            <li className="flex gap-x-3 text-[0.813rem]">
-              <button className="flex items-center gap-x-2">
-                <AiOutlineShareAlt />
-                Share
-              </button>
-            </li>
-          </>
+          <li className="flex items-center gap-x-2 text-[0.813rem] text-infoText">
+            <span>{item?.author?.agency}</span>
+            <span>●</span>
+            <span>{moment(item?.published_date, "YYYYMMDD").fromNow()}</span>
+          </li>
         )}
       </ul>
     </article>

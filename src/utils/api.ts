@@ -1,6 +1,7 @@
 import axios from "axios";
 import { serviceSetErrors } from "../services/app.service";
 import { notification } from "../helper/helper";
+import { store } from "../store/app.store";
 
 const service = () => {
   const headers = {
@@ -12,8 +13,9 @@ const service = () => {
 
   const requestResolve = (config: any) => {
     const token = localStorage.getItem("token");
+    const { language } = store.getState().AppStore;
     if (token) config.headers.Authorization = `Bearer ${token}`;
-
+    if (language) config.headers["Content-Language"] = language;
     return config;
   };
 

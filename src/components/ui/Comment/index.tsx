@@ -5,6 +5,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import moment from "moment";
 import { useStoreAuth } from "../../../store/features/auth.slice";
 import classNames from "classnames";
+import { translate } from "../../../helper/helper";
 
 interface User {
   id: number;
@@ -79,7 +80,7 @@ const Comment: React.FC<CommentProps> = ({
         </li>
       ));
     } else {
-      return <p>No comments to display</p>;
+      return <p>{translate("comment.noComment")}</p>;
     }
   };
 
@@ -87,14 +88,16 @@ const Comment: React.FC<CommentProps> = ({
     <div className="mx-auto w-full max-w-[55rem] pb-7">
       {token && (
         <div className="text-center">
-          <h3 className="mb-3 text-lg font-medium">Add your comment</h3>
+          <h3 className="mb-3 text-lg font-medium">
+            {translate("comment.add")}
+          </h3>
           <div className="flex flex-col items-center gap-y-3">
             <form onSubmit={handleSubmit} className="w-full">
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 className="mb-3 h-[12rem] w-full resize-none rounded-lg p-3 outline-none dark:bg-gray-700 dark:text-white dark:placeholder:text-white"
-                placeholder="Enter your comment here.."
+                placeholder={translate("comment.input")}
               />
               <Button
                 disabled={!message.trim()}
@@ -103,7 +106,7 @@ const Comment: React.FC<CommentProps> = ({
                 rounded={true}
                 size="sm"
               >
-                Post Comment
+                {translate("comment.post")}
               </Button>
             </form>
           </div>
@@ -112,7 +115,7 @@ const Comment: React.FC<CommentProps> = ({
 
       {!token && (
         <div className="text-center text-white bg-red-900 rounded-md py-7">
-          You must first log in to add a comment.
+          {translate("comment.login")}
         </div>
       )}
 
@@ -121,7 +124,7 @@ const Comment: React.FC<CommentProps> = ({
           onClick={() => setShow(!show)}
           className="flex items-center mb-10 cursor-pointer gap-x-3"
         >
-          View All Comments ({items.length})
+          {translate("comment.all")} ({items.length})
           <div className="grid size-[1.7rem] place-items-center rounded-full bg-primaryDarker text-white">
             {show ? <IoIosArrowDown /> : <IoIosArrowUp />}
           </div>

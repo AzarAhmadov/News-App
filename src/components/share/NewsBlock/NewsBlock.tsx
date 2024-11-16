@@ -4,7 +4,6 @@ import { typeNewsBlock } from "../../../types/types";
 import { useFetchAllNews } from "../../../hooks/useFetch";
 import LoadMore from "../../ui/LoadMore";
 import SkeletonArea from "../../ui/Skeleton/SkeletonArea";
-import { language, translate } from "../../../helper/helper";
 
 const NewsBlock: React.FC<typeNewsBlock> = ({ title, icon }) => {
   const [page, setPage] = useState(1);

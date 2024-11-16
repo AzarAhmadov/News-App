@@ -8,6 +8,7 @@ import useForm from "../../../../hooks/useForm";
 import { serviceAuthLogin } from "../../../../services/auth.service";
 import FormGroup from "../../../ui/Form/FormGroup";
 import FormInput from "../../../ui/Form/FormInput";
+import { translate } from "../../../../helper/helper";
 
 const Login: React.FC = () => {
   const { values, setField, handleSubmit } = useForm({
@@ -40,7 +41,7 @@ const Login: React.FC = () => {
     >
       <div className="w-full max-w-[450px] rounded-md border border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-900">
         <div className="flex items-center justify-between p-5 border-b dark:border-gray-600">
-          <h4 className="text-xl">Login</h4>
+          <h4 className="text-xl">{translate("auth.login")}</h4>
           <IoMdClose
             onClick={serviceSetToggleStatus}
             className="cursor-pointer text-[1.5rem]"
@@ -66,7 +67,7 @@ const Login: React.FC = () => {
               </FormGroup>
             </div>
             <Button size="sm" type="submit" variant="black" rounded={true}>
-              Login
+              {translate("auth.login")}
             </Button>
           </form>
         </div>

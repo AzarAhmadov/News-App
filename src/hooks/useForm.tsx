@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
 
 interface FormValues {
-  [key: string]: any;
+  [key: string]: string;
 }
 
 interface IFormProps {
