@@ -14,10 +14,10 @@ const Home: React.FC = () => {
         width > 992
           ? "grid-cols-[260px_calc(100%_-_325px)]"
           : "grid-cols-[100%]"
-      } gap-[35px] pt-3 px-5`}
+      } gap-[35px] px-5 pt-3`}
     >
       {width > 992 && <Aside />}
-      <div className="container flex flex-col justify-between h-screen mx-auto">
+      <div className="container mx-auto flex h-screen flex-col justify-between">
         <div>
           <Header />
           <main>

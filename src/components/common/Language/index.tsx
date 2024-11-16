@@ -4,13 +4,12 @@ import { useStoreApp } from "../../../store/features/app.slice";
 import { serviceSetLanguage } from "../../../services/app.service";
 
 const Language: React.FC = () => {
-  
   const { language, languages } = useStoreApp();
 
   return (
     <Dropdown
       DropdownHeader={
-        <div className="flex items-center py-2 cursor-pointer md:py-3 gap-x-2 whitespace-nowrap">
+        <div className="flex items-center py-2 gap-x-2 whitespace-nowrap md:py-3">
           {language.toUpperCase()}
         </div>
       }

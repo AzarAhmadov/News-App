@@ -31,3 +31,7 @@ export type TypeErrorMsg = {
 export type TypeLoadMore = {
   handlePage: () => void;
 };
+
+export type TypeAside = {
+  handleClose?: () => void;
+}
