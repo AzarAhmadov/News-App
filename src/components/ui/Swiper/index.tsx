@@ -36,6 +36,20 @@ const Slide: React.FC<typeSlider> = ({ title, icon, children }) => {
         slidesPerView={6}
         spaceBetween={15}
         modules={[Navigation]}
+        breakpoints={{
+          240: {
+            slidesPerView: 1,
+            spaceBetween: 5,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 10,
+          },
+        }}
         navigation={{
           prevEl: slidePrev.current,
           nextEl: slideNext.current,
