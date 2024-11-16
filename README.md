@@ -1,50 +1,69 @@
-# React + TypeScript + Vite
+# Aster News
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aster News is a modern news portal that fetches daily news via an API and provides users with a range of functionalities. It includes features like news categorization, user login, commenting, and more.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can view the live version of the project here: [Aster News Live Demo](https://react-news-app0.netlify.app)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Fetch daily news via an API
+- Categorization of news articles
+- Commenting on news articles
+- User accounts and login system
+- Language switching
+- User profile management
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React.js**: For building the user interface.
+- **Redux Toolkit**: For more complex state management.
+- **React Helmet**: For managing meta tags and SEO.
+- **Axios**: For making HTTP requests to fetch data from the API.
+- **Tailwind CSS**: For styling the application.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Installation
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Follow these steps to get the project up and running locally:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/AzarAhmadov/News-App.git
+    ```
+
+2. **Navigate to the project folder**:
+    ```bash
+    cd News-App
+    ```
+
+3. **Install the required dependencies**:
+    ```bash
+    npm install
+    ```
+
+4. **Run the project**:
+    ```bash
+    npm run dev
+    ```
+
+After running these steps, the application should be accessible in your browser at `http://localhost:3000`.
+
+## API Usage
+
+The project fetches news articles from an external API using Axios. For detailed information about the API endpoints, please refer to the relevant documentation.
+
+## Contributing
+
+We welcome contributions to the project! If you'd like to contribute, please fork the repository and submit a pull request. For significant changes, it’s recommended to open an issue first to discuss the modifications.
+
+## Screens
+
+<img width="1485" alt="Screenshot 2024-11-17 at 01 13 16" src="https://github.com/user-attachments/assets/add00eb2-429e-4cd4-91b2-4785ee2132a1">
+<img width="1485" alt="Screenshot 2024-11-17 at 01 13 23" src="https://github.com/user-attachments/assets/03ce6775-cb0c-4369-b97d-1fa997ddf208">
+<img width="1485" alt="Screenshot 2024-11-17 at 01 13 40" src="https://github.com/user-attachments/assets/7efab085-ea65-444e-9d5e-f30f978b3b76">
+<img width="1485" alt="Screenshot 2024-11-17 at 01 13 31" src="https://github.com/user-attachments/assets/cea009b7-d53d-4745-a615-af1bd14cc8cd">
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
