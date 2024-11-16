@@ -4,7 +4,7 @@ Aster News is a modern news portal that fetches daily news via an API and provid
 
 ## Live Demo
 
-You can view the live version of the project here: [Aster News Live Demo](https://react-news-app0.netlify.app)
+You can view the live version of the project here: [Aster News Live Demo](react-news-app0.vercel.app/)
 
 ## Features
 
