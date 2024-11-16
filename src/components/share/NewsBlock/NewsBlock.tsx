@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import NewsBlockItem from "./NewsBlockItem/NewsBlockItem";
 import { typeNewsBlock } from "../../../types/types";
 import { useFetchAllNews } from "../../../hooks/useFetch";
@@ -27,7 +27,7 @@ const NewsBlock: React.FC<typeNewsBlock> = ({ title, icon }) => {
 
   return (
     <>
-      <div className="flex items-center mt-6 gap-x-2">
+      <div className="mt-6 flex items-center gap-x-2">
         {icon}
         <h2 className="text-lg font-medium"> {title} </h2>
       </div>
@@ -45,4 +45,4 @@ const NewsBlock: React.FC<typeNewsBlock> = ({ title, icon }) => {
   );
 };
 
-export default NewsBlock;
+export default memo(NewsBlock);

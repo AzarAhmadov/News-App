@@ -76,7 +76,7 @@ export function useFetchNewsByCategory(
   return [data, loading];
 }
 
-export function useFetchAuthors(): [any[], boolean] {
+export function useFetchAuthors(): [any, boolean] {
   const [data, fetchData, loading] = useFetch([]);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react";
+import React from "react";
 import { IoMdClose } from "react-icons/io";
 import Button from "../../../ui/Button";
 import classNames from "classnames";
@@ -40,7 +40,7 @@ const Login: React.FC = () => {
       )}
     >
       <div className="w-full max-w-[450px] rounded-md border border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-900">
-        <div className="flex items-center justify-between p-5 border-b dark:border-gray-600">
+        <div className="flex items-center justify-between border-b p-5 dark:border-gray-600">
           <h4 className="text-xl">{translate("auth.login")}</h4>
           <IoMdClose
             onClick={serviceSetToggleStatus}
@@ -49,11 +49,11 @@ const Login: React.FC = () => {
         </div>
         <div className="py-7 pe-5 ps-5">
           <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
-            <div className="flex flex-col mb-2">
+            <div className="mb-2 flex flex-col">
               <FormGroup label="Email" required={true} error="email">
                 <FormInput
                   value={values.email}
-                  onChange={(e: FormEvent) => setField("email", e)}
+                  onChange={(e: any) => setField("email", e)}
                 />
               </FormGroup>
             </div>
@@ -62,7 +62,7 @@ const Login: React.FC = () => {
                 <FormInput
                   password={true}
                   value={values.password}
-                  onChange={(e: FormEvent) => setField("password", e)}
+                  onChange={(e: any) => setField("password", e)}
                 />
               </FormGroup>
             </div>

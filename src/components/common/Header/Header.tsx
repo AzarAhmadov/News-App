@@ -41,31 +41,32 @@ const Header: React.FC = () => {
       </form> */}
         {width > 992 ? (
           <Link
-            className="flex items-center gap-x-4 whitespace-nowrap rounded-md border border-gray-300 px-6 py-3 transition-all hover:bg-gray-200 dark:border-gray-600 dark:hover:bg-gray-700"
+            className="flex items-center px-6 py-3 transition-all border border-gray-300 rounded-md gap-x-4 whitespace-nowrap hover:bg-gray-200 dark:border-gray-600 dark:hover:bg-gray-700"
             to={"/"}
           >
             <p className="flex gap-x-2">{translate("header.text")}</p>
             <IoIosArrowForward className="text-[20px]" />
           </Link>
         ) : (
-          <FaBars onClick={() => setNav(!nav)} className="size-[25px]" />
+          <FaBars
+            onClick={() => setNav(!nav)}
+            className="size-[25px] shrink-0"
+          />
         )}
         <div className="flex items-center gap-x-3 md:gap-x-6">
           {token ? (
             <Dropdown
               DropdownHeader={
-                <div className="flex cursor-pointer items-center gap-x-3 whitespace-nowrap">
+                <div className="flex items-center cursor-pointer gap-x-3 whitespace-nowrap">
                   <figure className="size-[3rem] flex-shrink-0 overflow-hidden rounded-full p-1">
                     <img
-                      className="size-full rounded-full object-cover"
+                      className="object-cover rounded-full size-full"
                       src={user?.photo}
                       alt={user?.name}
                     />
                   </figure>
-                  <h3>
-                    {user?.name}
-                    <span className="ms-1 text-sm">{user?.surname}</span>
-                  </h3>
+
+                  <h3>{user?.name}</h3>
                 </div>
               }
             >
@@ -80,7 +81,7 @@ const Header: React.FC = () => {
             </Dropdown>
           ) : (
             <button
-              className="flex items-center gap-x-2 whitespace-nowrap rounded-md bg-primaryDarker px-6 py-2 text-white md:px-10 md:py-3"
+              className="flex items-center px-6 py-2 text-white rounded-md gap-x-2 whitespace-nowrap bg-primaryDarker md:px-10 md:py-3"
               onClick={serviceSetToggleStatus}
             >
               {translate("auth.login")}
