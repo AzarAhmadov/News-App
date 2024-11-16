@@ -34,4 +34,10 @@ export type TypeLoadMore = {
 
 export type TypeAside = {
   handleClose?: () => void;
-}
+};
+
+export type TypeSeo = {
+  title: string;
+  description: string;
+  image: string;
+};

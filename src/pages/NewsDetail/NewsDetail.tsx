@@ -9,6 +9,7 @@ import Comment from "../../components/ui/Comment";
 import { API } from "../../utils/api";
 import NewsApi from "../../api/news.api";
 import { notification } from "../../helper/helper";
+import Seo from "../../components/ui/Seo/Seo";
 
 const NewsDetail: React.FC = () => {
   const { slug } = useParams();
@@ -57,8 +58,15 @@ const NewsDetail: React.FC = () => {
     <>
       <div className="py-7">
         <GoBack />
+        <Seo
+          title={data.title}
+          description={data.description}
+          image={data.photo}
+        />
 
-        <h3 className="text-black text-[20px] md:text-2xl dark:text-white">{data?.title}</h3>
+        <h3 className="text-[20px] text-black md:text-2xl dark:text-white">
+          {data?.title}
+        </h3>
         <Link
           className="inline-flex px-4 py-1 mt-3 rounded-md bg-activeLink text-primaryDark dark:bg-gray-700 dark:text-white"
           to={`/search?category=${data?.category?.slug}`}
