@@ -10,7 +10,7 @@ const Search: React.FC = () => {
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
   const [currentPage, setCurrentPage] = useState(1);
-  const [data, loading] = useFetchNewsByCategory(category, currentPage,9);
+  const [data, loading] = useFetchNewsByCategory(category, currentPage, 9);
   const totalPages = 5;
 
   if (loading) {
@@ -25,7 +25,7 @@ const Search: React.FC = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 gap-3 py-5">
+      <div className="grid grid-cols-1 gap-3 py-5 md:grid-cols-2 xl:grid-cols-3">
         {data?.map((item: any, index: number) => (
           <NewsBlockItem item={item} key={index} />
         ))}
