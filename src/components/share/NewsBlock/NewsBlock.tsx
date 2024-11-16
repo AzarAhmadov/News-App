@@ -31,7 +31,7 @@ const NewsBlock: React.FC<typeNewsBlock> = ({ title, icon }) => {
         {icon}
         <h2 className="text-lg font-medium"> {title} </h2>
       </div>
-      <div className="grid grid-cols-3 gap-3 py-5">
+      <div className="grid grid-cols-1 gap-3 py-5 md:grid-cols-2 xl:grid-cols-3">
         {
           <SkeletonArea count={newsLimit} type="newsItem" loading={loading}>
             {newsData?.map((item, index: number) => (
