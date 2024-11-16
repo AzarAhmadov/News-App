@@ -4,7 +4,7 @@ Aster News is a modern news portal that fetches daily news via an API and provid
 
 ## Live Demo
 
-You can view the live version of the project here: react-news-app0.netlify.app/
+You can view the live version of the project here: [Aster News Live Demo](https://react-news-app0.netlify.app)
 
 ## Features
 
@@ -59,10 +59,10 @@ We welcome contributions to the project! If you'd like to contribute, please for
 
 ## Screens
 
-<img width="1485" alt="Screenshot 2024-11-17 at 01 13 16" src="https://github.com/user-attachments/assets/07cfb612-3395-404d-b484-f848ba6ea9c2">
-<img width="1485" alt="Screenshot 2024-11-17 at 01 13 23" src="https://github.com/user-attachments/assets/eb45259b-2dfd-4c69-b092-994704347d58">
-<img width="1485" alt="Screenshot 2024-11-17 at 01 13 31" src="https://github.com/user-attachments/assets/7dc6e88a-b4e8-4407-b4c7-844ee3f2ffc2">
-<img width="1485" alt="Screenshot 2024-11-17 at 01 13 40" src="https://github.com/user-attachments/assets/5323c72b-d94b-40c1-aa87-bbbef5401e0e">
+<img width="1485" alt="Screenshot 2024-11-17 at 01 13 16" src="https://github.com/user-attachments/assets/add00eb2-429e-4cd4-91b2-4785ee2132a1">
+<img width="1485" alt="Screenshot 2024-11-17 at 01 13 23" src="https://github.com/user-attachments/assets/03ce6775-cb0c-4369-b97d-1fa997ddf208">
+<img width="1485" alt="Screenshot 2024-11-17 at 01 13 40" src="https://github.com/user-attachments/assets/7efab085-ea65-444e-9d5e-f30f978b3b76">
+<img width="1485" alt="Screenshot 2024-11-17 at 01 13 31" src="https://github.com/user-attachments/assets/cea009b7-d53d-4745-a615-af1bd14cc8cd">
 
 ## License
 
