@@ -33,7 +33,7 @@ const Author: React.FC = () => {
       <div className="mt-5">
         <GoBack />
       </div>
-      <div className="flex items-center justify-between px-5 py-3 my-4 bg-white border rounded-md shadow-sm dark:border-gray-600 dark:bg-gray-800">
+      <div className="flex flex-col items-center justify-between px-5 my-4 bg-white border rounded-md shadow-sm py-7 md:py-3 gap-y-5 md:flex-row dark:border-gray-600 dark:bg-gray-800">
         <div className="flex items-center gap-x-3">
           <figure className="size-[4.5rem] overflow-hidden rounded-full border border-primaryDarker/30 p-1">
             <img
