@@ -37,7 +37,7 @@ export type TypeAside = {
 };
 
 export type TypeSeo = {
-  title: string;
-  description: string;
-  image: string;
+  title?: string;
+  description?: string;
+  image?: string;
 };

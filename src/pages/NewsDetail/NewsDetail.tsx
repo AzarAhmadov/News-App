@@ -59,7 +59,7 @@ const NewsDetail: React.FC = () => {
       <div className="py-7">
         <GoBack />
         <Seo
-          title={data.title}
+          title={`News App | ${data.title}`}
           description={data.description}
           image={data.photo}
         />
@@ -84,7 +84,7 @@ const NewsDetail: React.FC = () => {
       </figure>
 
       <div
-        className="mt-7"
+        className="text-sm md:text-lg mt-7"
         dangerouslySetInnerHTML={{ __html: data?.content }}
       ></div>
 
