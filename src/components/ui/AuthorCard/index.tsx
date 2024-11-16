@@ -15,17 +15,17 @@ export interface IauthorCard {
 
 const AuthorCard: React.FC<IauthorCard> = ({ item }) => {
   return (
-    <div className="flex flex-col items-center gap-y-3 rounded-md bg-white p-4 dark:bg-gray-800">
+    <div className="flex flex-col items-center p-4 bg-white rounded-md gap-y-3 dark:bg-gray-800">
       <figure className="size-[85px] overflow-hidden rounded-full border border-black/10 p-1">
         <img
-          className="size-full rounded-full object-cover"
+          className="object-cover rounded-full size-full"
           src={item.photo}
           alt={item.fullname}
         />
       </figure>
       <div className="text-center">
         <h3 className="text-md line-clamp-1">{item.fullname}</h3>
-        <span className="line-clamp-1 text-sm text-paragraphColor dark:text-white">
+        <span className="text-sm line-clamp-1 text-paragraphColor dark:text-white">
           {item.agency}
         </span>
       </div>
